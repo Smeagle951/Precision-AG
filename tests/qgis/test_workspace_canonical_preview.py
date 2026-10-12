@@ -7,6 +7,7 @@ import os
 import unittest
 
 from qgis.core import QgsApplication, QgsCoordinateReferenceSystem, QgsFeature, QgsGeometry, QgsProject, QgsVectorLayer
+from qgis.PyQt.QtWidgets import QDialog
 
 from plugin.fortsmart_precision.core.precision_lines_engine import run_precision_lines
 from plugin.fortsmart_precision.domain.headland_layout import (
@@ -130,7 +131,9 @@ def _field_layer(name):
 
 def _generator(field_layer):
     dialog = FortSmartWorkspaceDialog.__new__(FortSmartWorkspaceDialog)
+    QDialog.__init__(dialog)
     dialog.iface = _Iface()
+    dialog.border_entry_preview = None
     dialog.work_crs_authid = "EPSG:31981"
     dialog.field_combo = _Combo(field_layer)
     dialog.ab_layer_combo = _Combo(None)
@@ -418,6 +421,18 @@ class WorkspaceCanonicalPreviewTest(unittest.TestCase):
             )
         finally:
             dialog.reject()
+
+    def test_planning_dialog_opens_and_closes_with_qgis_initialized(self):
+        dialog = FortSmartWorkspaceDialog(_Iface())
+        try:
+            dialog.show()
+            QgsApplication.processEvents()
+            self.assertTrue(dialog.isVisible())
+            self.assertIsNone(dialog.border_entry_preview)
+        finally:
+            dialog.reject()
+            QgsApplication.processEvents()
+        self.assertFalse(dialog.isVisible())
 
     def test_saved_cut_becomes_current_planting_layer_in_planning(self):
         final = QgsVectorLayer("LineString?crs=EPSG:31981", "31_Linhas_Finais", "memory")

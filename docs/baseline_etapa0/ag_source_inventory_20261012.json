@@ -1,0 +1,145 @@
+{
+ "fields": {
+  "talhao-6-a": {
+   "15_passadas_bordadura": {
+    "bytes": 1277952,
+    "file_sha256": "cd0f9b141a032dae0fa77c412d4bbf1fbe01acf7d3981071808d755a4ebb13a4",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 3,
+    "feature_ids_sha256": "a36b1f2c3f84522dd1005145646617d7054c0851e97c72a039c0bdfac9fa07f3",
+    "geometry_wkb_sha256": "c14fce9e1cd4bec668f79bb690d8d6724e993c121300d43864557423b3125131"
+   },
+   "12_passadas_plantio": {
+    "bytes": 188416,
+    "file_sha256": "95734a53178a7e518bf88d47ea6d68dc4c82f8d6dbed681c732bb0178deab57f",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 72,
+    "feature_ids_sha256": "0be9af6f0f5c4a1903ba4783343bca3caf6402399e1c2b357aae11a98e035dfc",
+    "geometry_wkb_sha256": "4cbfb8168f1530ae3bb3cfcc71332357eafa1dd3485e9a1cfa79554713b28eb5"
+   },
+   "03_bordadura": {
+    "bytes": 114688,
+    "file_sha256": "6bcecd1457534c17e0d2d601d967e23098628c9db261ed6d211bd19b734f1406",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "f98c285e979e4c30a62765877a680aa7e093579d3332646a593aef5efc319a84"
+   },
+   "02_limite_interno": {
+    "bytes": 102400,
+    "file_sha256": "6757c36f484d59d866c670b19461a10d743920bcedc0cee6ded459176b88354d",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "eecbb4083521431f5366c33c4504123c80b26c66d9154a497a91651845d070f8"
+   },
+   "01_limite_externo": {
+    "bytes": 102400,
+    "file_sha256": "742fda567b37154be07a30c7f3fba3a463195329353cb9c08f63f601ad4ec012",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "ca59569c84b54f6d68d166a4e455b1c97c1d0548a2714c99f66ebef07715c96f"
+   }
+  },
+  "talhao-6-b": {
+   "15_passadas_bordadura": {
+    "bytes": 10174464,
+    "file_sha256": "55d9f9d26bded6c9c4e71e07c3bf0e6176c4f697e4046448b4117acf195b6757",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 2,
+    "feature_ids_sha256": "3a316d6d3226f84c1e46e4447fa8d5fd800bff4a1bc6498152523cd4a602b69b",
+    "geometry_wkb_sha256": "0211f2a82524ce0114f45a5f649f915b6d2c8fc77aeddbde664603200bddfbe4"
+   },
+   "12_passadas_plantio": {
+    "bytes": 131072,
+    "file_sha256": "f7ce909c506c8855d2b000ab5e473ae2b7ada7df52b29db295c909d71d5c6eb3",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 39,
+    "feature_ids_sha256": "0cce22810e130072fbb9cb8289b0c7b845ecf889bba7553519c5e4196968d9a5",
+    "geometry_wkb_sha256": "ae9ba5aea77cb1385c689ae03e0eb2f50c1a2921c7791214cb75462030324a01"
+   },
+   "03_bordadura": {
+    "bytes": 114688,
+    "file_sha256": "ee8853d681dcc1a914f587dd1fc40a1e3128986f362988d125bc256902313abc",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "fd72f7fb726bfdb4fca52766792e461f4c7f8be646c7c8522a59094503802351"
+   },
+   "02_limite_interno": {
+    "bytes": 106496,
+    "file_sha256": "74b9ad531027785391d7345d7c528b789213989b280624a23f9e966cf86436c5",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 2,
+    "feature_ids_sha256": "3a316d6d3226f84c1e46e4447fa8d5fd800bff4a1bc6498152523cd4a602b69b",
+    "geometry_wkb_sha256": "d8fd176f319d6790fcc94b6e826a2f2e66fa70fc5472d39e027fbdba8ebcaf79"
+   },
+   "01_limite_externo": {
+    "bytes": 102400,
+    "file_sha256": "281d4a46ba60bff73674b8be99dad7d25118d6e2ea88ffa324ce7d50cca14c97",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "959e29f1fe46d04a7e44af56c544a02d3d3e0479aa536aafe1eb5d4093081855"
+   }
+  },
+  "th-6-a_b": {
+   "15_passadas_bordadura": {
+    "bytes": 126976,
+    "file_sha256": "d0cc0919e06715a8fcca4881cf0134673667946c49024b66069116c99eb7bcef",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 2,
+    "feature_ids_sha256": "3a316d6d3226f84c1e46e4447fa8d5fd800bff4a1bc6498152523cd4a602b69b",
+    "geometry_wkb_sha256": "913fda0c4eb030b482e37b6e193ecd9c5d3d9827b9d3f6e52cb8ef6be37e8568"
+   },
+   "12_passadas_plantio": {
+    "bytes": 114688,
+    "file_sha256": "5064abc8bd00069d63ade03a53dea55e1def11acfe2012d71b51dd2fae214ee6",
+    "crs": "EPSG:31981",
+    "geometry_type": 2,
+    "feature_count": 20,
+    "feature_ids_sha256": "a640d0f828b0b34553fab6e2bfef7c7f67f7bf45e63f349708b5b27f77698acb",
+    "geometry_wkb_sha256": "ec1f55ff3478828dbfbf7639f9c7adf0481c39eab0e72e50ddc60e3512592e3b"
+   },
+   "03_bordadura": {
+    "bytes": 114688,
+    "file_sha256": "455177436f82998167970bfc679dfce585e68cf7a4ef8edaf1e2b1a5be6b8dc0",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "93eee1b8c7212604e3f36e3a6eeb8dcd697bdd3ba0cbcfb266f31e1dc8df0c4f"
+   },
+   "02_limite_interno": {
+    "bytes": 102400,
+    "file_sha256": "f8d4f5a6582342ed2c54c35636c60bf4e80891192d6507dbe7dcdc1d1aa7c8e9",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "32e8e2b8a175e5eabc4c8bab519d70331cb2f10b8380291eb1e6430c5fad92cd"
+   },
+   "01_limite_externo": {
+    "bytes": 102400,
+    "file_sha256": "bc95b0f8e726ed367f55b3a2aa0622634fbee43b8fb87a53a01e32c195c11310",
+    "crs": "EPSG:31981",
+    "geometry_type": 3,
+    "feature_count": 1,
+    "feature_ids_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "geometry_wkb_sha256": "5fb9322c85ff7ad21eb92309f1098afc8ee807bb93a21ac81e5adf1a5fbeac0e"
+   }
+  }
+ }
+}

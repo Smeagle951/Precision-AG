@@ -1,0 +1,1145 @@
+{
+ "date": "2026-10-12",
+ "fields": {
+  "talhao-6-a": {
+   "john_deere_dual": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "d1089484c8dfeee9e56463e75181c60336fcc421f852b7df44fb323c92a11cfc"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "d9f143daaf7bdd11f9a0170f11cf9b0157d7e785e7393786ecd41138d83660a2"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/CurveTrack<uuid>.fdShape": {
+     "sha256": [
+      "6b4d5502b6384f791cc4232f4791064723f5eb9b3473de9bb9340158b40e9c6c",
+      "7b7f61ef3441c777327086cca65e43d29431607ee81eafc62d8c47d2af271fb5"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "e80409fd8765c01456337599ba8454af29a70efe1b1960b987ceb8c04dedd66e"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "8c449acf262229e18f094885957c235b5df087add80bdb6fcbf18b718209d7db"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "4de998a99d079896649f66b9623cc40ce8d7dc0e729ed7a848eba5efb4206a84"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "9784fbf1fbe853cb50b1dc1a4a2e023b9c8877789f61bf100ca3114f89bf4dd1"
+     ],
+     "deterministic": true
+    },
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "41cd78615229c4aa0043c01c5dbd684077ed18d800c931f00ad5f673f3d2df61"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/AdaptiveCurve<uuid>.gjson": {
+     "sha256": [
+      "88526f416fe98b0e495c912a6d8fa584117a7445dc3e240b4e6942b56ee5eee5",
+      "fde3db2a3af788cfe70205ff9ec7469dde0a2a52112b3f677a2855fc52e41bef"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "973a701f306389873d601bee65666d71792eabab0ac3f850fc089afd6aba6ab6"
+     ],
+     "deterministic": true
+    },
+    "JOHN_DEERE_GUIDANCE_REPORT.txt": {
+     "sha256": [
+      "bfcbd4f574628f1886d8b17b83b59beab34e26acf8d534ad84ca4e19333a39bd"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gen4_guidance_debug.json": {
+     "sha256": [
+      "9e3b46c647e0271d14f7b2a5ec147999951c84520c204020edb56a4ed2a87961"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "61a549a3acc0f2d9490456b09ecf1733aa81c4aea3e9242b3f1bfc8ad58c0bcb"
+     ],
+     "deterministic": true
+    },
+    "john_deere_guidance_report.json": {
+     "sha256": [
+      "997cb052e72a498b11fdfa5c68c9fa1997fd03c14195772ea1709b4046de5b34"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gs3": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "d1089484c8dfeee9e56463e75181c60336fcc421f852b7df44fb323c92a11cfc"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "d9f143daaf7bdd11f9a0170f11cf9b0157d7e785e7393786ecd41138d83660a2"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "5736557a4274a0a55b7482e52f20c4a05b6556789e1116d64f5f3d8822c29c4c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/0A/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "8c449acf262229e18f094885957c235b5df087add80bdb6fcbf18b718209d7db"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "4de998a99d079896649f66b9623cc40ce8d7dc0e729ed7a848eba5efb4206a84"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "b4bf01e01448df51088773639d1864d61f2fd82f350479c508dad9806c882299"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "0bf783f9841fd220cdfdd66b2f0b9e2a0293f9057f1cccc4c07d0558bfd0a6b3"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gen4": {
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "18902f55c2cd72568e88316c1b220331cd01cbed70b7426380f3d1cd2fe7c300"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "973a701f306389873d601bee65666d71792eabab0ac3f850fc089afd6aba6ab6"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v4": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "e3aed54d02ca262e9148a5ea80e495242fd79d480aa77aae97133ec529d05161"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "708487cf481c34df3c1818ce088cacc721d7bc19efa31423388f483c6d1fa907"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v3": {
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "4e886bca65b0ed5518bf5245515822f000baf16526e0deccfc635aa1545ff11d"
+     ],
+     "deterministic": true
+    }
+   },
+   "cnh": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "e3aed54d02ca262e9148a5ea80e495242fd79d480aa77aae97133ec529d05161"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "708487cf481c34df3c1818ce088cacc721d7bc19efa31423388f483c6d1fa907"
+     ],
+     "deterministic": true
+    }
+   },
+   "fendt": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "e3aed54d02ca262e9148a5ea80e495242fd79d480aa77aae97133ec529d05161"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "708487cf481c34df3c1818ce088cacc721d7bc19efa31423388f483c6d1fa907"
+     ],
+     "deterministic": true
+    }
+   },
+   "jacto": {
+    "OMNI/Data/Fazenda/talhao-6-a/_perimeter.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-a/_perimeter.dbf": {
+     "sha256": [
+      "f0d375f94d5b92cb64b664c3de1f77fd293d9687ca8880228b4221befd211e81"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-a/_perimeter.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-a/_perimeter.shp": {
+     "sha256": [
+      "973409b9dbdd182073d091ca7ad243ba7a8e1d0255917ac0fe832ef7ce21fb48"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-a/_perimeter.shx": {
+     "sha256": [
+      "d68b85f82d831f5865c75852524ade474c0702312fc849cca1066d5f2ecfa3ab"
+     ],
+     "deterministic": true
+    }
+   },
+   "sendto2020": {
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "4d11f585e73753c297fa31e67832c395bea73431cf5eeff3233b74addf39d232"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "6a07a46570f6639fde02f7e018dc9d19c53132f6e8891859eb00ac8d5b33ca66"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_PLAN.json": {
+     "sha256": [
+      "5b897a304e19758aeae6e143988edc5fa44f628c2aa77bc4a6949ddf2e3c4c98"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "31f57a5ffe5352569391d7196677edcb88034faf0f3a835136780f09c002e4ba"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "307f39dd5e0e9e74353d81404e64639bd97186b75d69007b09df43a4465e4f96"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.cpg": {
+     "sha256": [
+      "85e386af4259c68a3545d321ab8712bce767fbb24707a2829b3d013223869a94"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.dbf": {
+     "sha256": [
+      "f9a139aba264b3926c627e8889280605037e8c20b4c5e128e960e379af1e125c"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.mcd": {
+     "sha256": [
+      "44811952cdd219fc1467a6dbd6273c4f6c6b28c32c02a44f860a93f781812645"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.prj": {
+     "sha256": [
+      "09d68b4ece4cd8c64bea2742c8157ae9ca928ffa0edf0638d96578ec279461e3"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.shp": {
+     "sha256": [
+      "daec5827b77305cfdb7a9c35987824af1271ecad75adec928726b99b6204469a"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-a.shx": {
+     "sha256": [
+      "7ebe2527e83ae68722156f1b9cf120b0bd3d38f1fc4acbdb97d7328be1c0fd9b"
+     ],
+     "deterministic": true
+    }
+   },
+   "stara": {
+    "DADOS/TALHOES/talhao-6-a/LIMITE.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-a/LIMITE.dbf": {
+     "sha256": [
+      "9aac6e0880ebb9e47f3bfd276d0a28730f741452731982c07ee234a5e91aa2d1"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-a/LIMITE.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-a/LIMITE.shp": {
+     "sha256": [
+      "973409b9dbdd182073d091ca7ad243ba7a8e1d0255917ac0fe832ef7ce21fb48"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-a/LIMITE.shx": {
+     "sha256": [
+      "d68b85f82d831f5865c75852524ade474c0702312fc849cca1066d5f2ecfa3ab"
+     ],
+     "deterministic": true
+    }
+   },
+   "precision_planting": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "e3aed54d02ca262e9148a5ea80e495242fd79d480aa77aae97133ec529d05161"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "708487cf481c34df3c1818ce088cacc721d7bc19efa31423388f483c6d1fa907"
+     ],
+     "deterministic": true
+    }
+   }
+  },
+  "talhao-6-b": {
+   "john_deere_dual": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "c029e9284be7c1249d6918cdd93b4140ff390144e12188fc37e97d0ec0cb4d3c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "74d3fbfe4cdabc022d4330334a7dacd582eb96d2c5f7fcdb3b56121b42bce03d"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/CurveTrack<uuid>.fdShape": {
+     "sha256": [
+      "cbc69879a23c21ba6487e3f3da11d0fc2a58ab58dfaafd5468f5619a905b90e8",
+      "f7d49635804ca82434baf463ffc3fcf72d351ed540acfbd0c1ec06826d4a3039"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "6e5edb19a70ee2c2903385de0b229f55a01ba63611073eab935881f90f4f1d61"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "d8c35f54895e9861dcad9397f834cbdb2a4dc0d0155b7438c866298c83f35321"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "15396a05c0b9dbfec6345cd5f153a42cccccdbe98dc794d2a38b1b8c27b9be71"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "c1b1ee41ecfd1a1ccf646eb1c97800724efc60bd3cc8bb89f6ce5ce2b9b1da76"
+     ],
+     "deterministic": true
+    },
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "aea8df9373d822e1c672fd9126deab4b1352d12b629d03e87c35b20facc01aae"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/AdaptiveCurve<uuid>.gjson": {
+     "sha256": [
+      "9cac891040293cd5db42d90d9d0a68be96c5bba2bdbdcdabff50a8588991173b",
+      "c011ad76b52adb8aa879e6c3cf7dedc9280e0396bab21bf1779b798a724708b1"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "7a2c748822ba19c2c3f6257080bd7c34b0c1996a9297a7396babb60080425e3d"
+     ],
+     "deterministic": true
+    },
+    "JOHN_DEERE_GUIDANCE_REPORT.txt": {
+     "sha256": [
+      "f8eb4fc6bd6ea93013086b09a80e8c25a267e64ede33b8d6882fce8988b05e3e"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gen4_guidance_debug.json": {
+     "sha256": [
+      "1200084db78946a26440bc11208a5abcdbeb32cc35c0a8dd20dfb4ab0df67eb4"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "10f617d6f80ab97828101427474fafb4a7fd70655723df541a03e438b1855683"
+     ],
+     "deterministic": true
+    },
+    "john_deere_guidance_report.json": {
+     "sha256": [
+      "adb572d6ba007cc431420d50da8d0604e8cb65fb9073d616080f5e30438222a4"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gs3": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "c029e9284be7c1249d6918cdd93b4140ff390144e12188fc37e97d0ec0cb4d3c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "74d3fbfe4cdabc022d4330334a7dacd582eb96d2c5f7fcdb3b56121b42bce03d"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "ce74af6b915f7885ac640e0a799d77f8db86fd32f7c3c9476739c0b11db61f11"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/1C/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "d8c35f54895e9861dcad9397f834cbdb2a4dc0d0155b7438c866298c83f35321"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "15396a05c0b9dbfec6345cd5f153a42cccccdbe98dc794d2a38b1b8c27b9be71"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "f8b55df568c79234f79db14b143a1d927a491673b23b0563a0325953e340bd05"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "1f684a3b6ea3ead661215d203143297605ce5a0627166a4f5fd1cd2f93dec5c0"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gen4": {
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "70fe431013ad9979aad5c2edadad82a2dfe1a71057a5dd5be54599a0298e8d42"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "7a2c748822ba19c2c3f6257080bd7c34b0c1996a9297a7396babb60080425e3d"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v4": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "3c92dcfe8ceef8ce09ec7e81e279e0fdb11516362ed618238b03b52c52bdff93"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "5f281cd64bcf02f5f35ab0f8e9b665d0aee19f7da6c21df74092d1c2fd7470b7"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v3": {
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "ed6d9a9c33039423f3e1b5230aec89b7fbd3e72b0d6761fd97cfe6855f8b5f6d"
+     ],
+     "deterministic": true
+    }
+   },
+   "cnh": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "3c92dcfe8ceef8ce09ec7e81e279e0fdb11516362ed618238b03b52c52bdff93"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "5f281cd64bcf02f5f35ab0f8e9b665d0aee19f7da6c21df74092d1c2fd7470b7"
+     ],
+     "deterministic": true
+    }
+   },
+   "fendt": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "3c92dcfe8ceef8ce09ec7e81e279e0fdb11516362ed618238b03b52c52bdff93"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "5f281cd64bcf02f5f35ab0f8e9b665d0aee19f7da6c21df74092d1c2fd7470b7"
+     ],
+     "deterministic": true
+    }
+   },
+   "jacto": {
+    "OMNI/Data/Fazenda/talhao-6-b/_perimeter.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-b/_perimeter.dbf": {
+     "sha256": [
+      "9488e79fff3e878c07d8525f23cbb7f46b3c3c3e99cf4aab61ebf610f07ae6a1"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-b/_perimeter.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-b/_perimeter.shp": {
+     "sha256": [
+      "ab0e34a5cf999929313e757121557df347bc3ac6ebc4048d224d641b7cbde861"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/talhao-6-b/_perimeter.shx": {
+     "sha256": [
+      "eb0da7c2bc1c8f960ed6cc56eeab36f975880fa394e9330735865dc1c53abc4e"
+     ],
+     "deterministic": true
+    }
+   },
+   "sendto2020": {
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "e51fad3a2b56f88752c2191d2ca0fc58d4ba84a204860f0f6c2511b26a89ed2f"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "de7c784991a44e5f799bc87ef53d91ef7fc1f5f8fad3fd7c0f62efa54a17c787"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_PLAN.json": {
+     "sha256": [
+      "dd2853ba216c046c34b0c9927e807cd8150a5072166767ee50d65c416d4d331e"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "5858256845684fcf8e14be6ddde8573f28f8a2bfa660e04059b0cba9d7a659bd"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "b4c78130f2a91ca61e56ede952bc5c54725d8a25c124edb81a6157fe3a8a11d3"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.cpg": {
+     "sha256": [
+      "85e386af4259c68a3545d321ab8712bce767fbb24707a2829b3d013223869a94"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.dbf": {
+     "sha256": [
+      "277131045742e15ac8a96602e86da9952db6d78e0a8f6de3af69fadce92bb3f2"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.mcd": {
+     "sha256": [
+      "44811952cdd219fc1467a6dbd6273c4f6c6b28c32c02a44f860a93f781812645"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.prj": {
+     "sha256": [
+      "09d68b4ece4cd8c64bea2742c8157ae9ca928ffa0edf0638d96578ec279461e3"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.shp": {
+     "sha256": [
+      "78b24e29f5d4a3ab0293f034fdecee4c0e54e3f8ea6eec837e59435ec43eda3e"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/talhao-6-b.shx": {
+     "sha256": [
+      "f9ac61aa12ed9a71fc05181b969b2b09d2736ddd4d455f8c23be6d88b83133c9"
+     ],
+     "deterministic": true
+    }
+   },
+   "stara": {
+    "DADOS/TALHOES/talhao-6-b/LIMITE.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-b/LIMITE.dbf": {
+     "sha256": [
+      "bbbdc6f03197011ee5bf2de59f2dc999fc8e2fd81b096294d9e021f4e2e590ce"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-b/LIMITE.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-b/LIMITE.shp": {
+     "sha256": [
+      "ab0e34a5cf999929313e757121557df347bc3ac6ebc4048d224d641b7cbde861"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/talhao-6-b/LIMITE.shx": {
+     "sha256": [
+      "eb0da7c2bc1c8f960ed6cc56eeab36f975880fa394e9330735865dc1c53abc4e"
+     ],
+     "deterministic": true
+    }
+   },
+   "precision_planting": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "3c92dcfe8ceef8ce09ec7e81e279e0fdb11516362ed618238b03b52c52bdff93"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "5f281cd64bcf02f5f35ab0f8e9b665d0aee19f7da6c21df74092d1c2fd7470b7"
+     ],
+     "deterministic": true
+    }
+   }
+  },
+  "th-6-a_b": {
+   "john_deere_dual": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "d1089484c8dfeee9e56463e75181c60336fcc421f852b7df44fb323c92a11cfc"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "31162c5ca5127c42020822eb7d05520a18b197aa276729202c7114e23f2475e4"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/CurveTrack<uuid>.fdShape": {
+     "sha256": [
+      "c848e263b6f1feb7cb5466bfc1df4b808b4a32dc0162b37a8eb6e1293bb09e56",
+      "d4bd3dc239c6e20f4fdf6f5ac59c95b12006efa6ad71d992797c4ba40dfe67c0"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "0aea5ad2e9453430a1d7377f348dc6088f9f0fd60f217ec81e26b6bdfada2a6b"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "1658d32953e04b599496b230fa3f33bbde9319161b40b13742dbb4768f88ac70"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "ab2f7b0e6b8c0bcfaf2eb68d301a22a385d41079ac07bdb4361fd2833a8d8b37"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "353958860a5323a332ad3991bce5165e631c06e0ecdf55e85b104b15240cc097"
+     ],
+     "deterministic": true
+    },
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "0737856b1642e7a3694b13676eacc93820cb7054c7afb295c27581d98d0a781d"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/AdaptiveCurve<uuid>.gjson": {
+     "sha256": [
+      "4828fdbf6f5540476e7f8507e7cf87fddeb00cdd015740d77c3e580c15f661cc",
+      "7d817684a46f537da4dc872e4e9bc5316cc59fcd0b803497ed544d71066006cc"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "41d3a5d854d2860da79c4cbd66610c160aa85b4c8a7845e507e590509fa3da2b"
+     ],
+     "deterministic": true
+    },
+    "JOHN_DEERE_GUIDANCE_REPORT.txt": {
+     "sha256": [
+      "10957cb9564670feff8d97c9b565ed8164e5d874e4c6531f495ddd8f5fe56225"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gen4_guidance_debug.json": {
+     "sha256": [
+      "03a9d6f89ebc3786bcd4aa1eab11d2df4df6ad1211c126b0bdbe23d3d129b56f"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "17bbbae36a87363410a8a43e6283d2f81d48d4a88d442f0e55846893547cd9ce"
+     ],
+     "deterministic": true
+    },
+    "john_deere_guidance_report.json": {
+     "sha256": [
+      "83633762d63088608845c2a21837b676757161b7c946c8838d23689c86f10693"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gs3": {
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/Boundary<uuid>.fdData": {
+     "sha256": [
+      "d1089484c8dfeee9e56463e75181c60336fcc421f852b7df44fb323c92a11cfc"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/Boundary<uuid>.fdShape": {
+     "sha256": [
+      "31162c5ca5127c42020822eb7d05520a18b197aa276729202c7114e23f2475e4"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/ExportOnly.SpatialCatalog": {
+     "sha256": [
+      "4806d1ecb3cdcab7dd00a99045c135ad6e3164a66780b1019a78b4b908956d71"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/ImportExport.SpatialCatalog": {
+     "sha256": [
+      "511d40ea89f24c158d72e327e82cb9a923af972e91d340ebc616f74ed70d9d1a"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/Fields/F5/<uuid>/WaterManagement.SpatialCatalog": {
+     "sha256": [
+      "1658d32953e04b599496b230fa3f33bbde9319161b40b13742dbb4768f88ac70"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/global.ver": {
+     "sha256": [
+      "5f8a1154a123694a52621153f2404e3497e6d8dd52fc5ed211114a8ed287080c"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/host": {
+     "sha256": [
+      "c14f8eef17e44e52a21486c2a996300c027ca9144eb56d6fd6017c151b58f2f6"
+     ],
+     "deterministic": true
+    },
+    "GS3_2630/Fazenda/RCD/EIC/setup.fds": {
+     "sha256": [
+      "ab2f7b0e6b8c0bcfaf2eb68d301a22a385d41079ac07bdb4361fd2833a8d8b37"
+     ],
+     "deterministic": true
+    },
+    "GS3_EXPORT_REPORT.txt": {
+     "sha256": [
+      "2204f578ad2dab0983f5cee103243acc910855c810259db908c12e0314177fa4"
+     ],
+     "deterministic": true
+    },
+    "fortsmart_gs3_export_debug.json": {
+     "sha256": [
+      "7f56e673545e81fb4fe3269e43862a179d4ac7a6060b899b8b72e6983439ba0d"
+     ],
+     "deterministic": true
+    }
+   },
+   "john_deere_gen4": {
+    "Gen4/MasterData.xml": {
+     "sha256": [
+      "8ec8d8d59f639bf25fca8c81c9c6b6cc1dd81b62ead586273f5e8538e8d6f90e"
+     ],
+     "deterministic": true
+    },
+    "Gen4/SpatialFiles/Boundary<uuid>.gjson": {
+     "sha256": [
+      "41d3a5d854d2860da79c4cbd66610c160aa85b4c8a7845e507e590509fa3da2b"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v4": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "735b83ab8596a0c33955b72ecd0e66dbbaa87b77f4599f4b10d6eb56d63cd769"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "977093108a0d5113b8045123c44a91a7f8f7222d1496e4e55c3437daaaa429ae"
+     ],
+     "deterministic": true
+    }
+   },
+   "isoxml_v3": {
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "abcc767a0204a9a70a6e39ce939a9d3476df125fcf1fc3b974fc9fcfee5a8b98"
+     ],
+     "deterministic": true
+    }
+   },
+   "cnh": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "735b83ab8596a0c33955b72ecd0e66dbbaa87b77f4599f4b10d6eb56d63cd769"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "977093108a0d5113b8045123c44a91a7f8f7222d1496e4e55c3437daaaa429ae"
+     ],
+     "deterministic": true
+    }
+   },
+   "fendt": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "735b83ab8596a0c33955b72ecd0e66dbbaa87b77f4599f4b10d6eb56d63cd769"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "977093108a0d5113b8045123c44a91a7f8f7222d1496e4e55c3437daaaa429ae"
+     ],
+     "deterministic": true
+    }
+   },
+   "jacto": {
+    "OMNI/Data/Fazenda/th-6-a_b/_perimeter.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/th-6-a_b/_perimeter.dbf": {
+     "sha256": [
+      "680b68f08846128a137d458f21acaabb3b7ab12baeec8431083eaf5423e89358"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/th-6-a_b/_perimeter.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/th-6-a_b/_perimeter.shp": {
+     "sha256": [
+      "4fd136f0527015887cea12eb033ff1522e1bd026783d2bc4b12a445704ebe284"
+     ],
+     "deterministic": true
+    },
+    "OMNI/Data/Fazenda/th-6-a_b/_perimeter.shx": {
+     "sha256": [
+      "b9fc63621d9c1e330596eedfc80a0da81bdae83c14cf8aa725f280467cdd3bed"
+     ],
+     "deterministic": true
+    }
+   },
+   "sendto2020": {
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "64d9ee3118d402c5e5a4c36ff7de3fb394d3bcfcb6297677875e7d3d8d2c3f8f"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/PRECISION2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "5b3d8621713366620ad4d418b2f1ed974d21b05935116e02dc6e5aa66c701a7b"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_PLAN.json": {
+     "sha256": [
+      "0519725aae7682c7db12b6ae0482a72433765596c7e5eed558f5b90b158f0700"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.json": {
+     "sha256": [
+      "6ecc7013a79276fba1a27e07056772e4143e7194d8d1fc37bd389869100aa7ab"
+     ],
+     "deterministic": true
+    },
+    "SENDTO2020_DIAGNOSTIC_EXPORT/SENDTO2020_EXPORT_REPORT.txt": {
+     "sha256": [
+      "3eefda148ee1a48eca512a4a0bbfd76ae54f520f7df196d99b36aa8972efd4d3"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.cpg": {
+     "sha256": [
+      "85e386af4259c68a3545d321ab8712bce767fbb24707a2829b3d013223869a94"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.dbf": {
+     "sha256": [
+      "b8271c50756490f02dd85234c20344ccaa29e7815a005275164e7dcf32303ee5"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.mcd": {
+     "sha256": [
+      "44811952cdd219fc1467a6dbd6273c4f6c6b28c32c02a44f860a93f781812645"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.prj": {
+     "sha256": [
+      "09d68b4ece4cd8c64bea2742c8157ae9ca928ffa0edf0638d96578ec279461e3"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.shp": {
+     "sha256": [
+      "452ba772055e8515d1b178b9888779dbee27d573261fea3d6e363cf6d68b08a2"
+     ],
+     "deterministic": true
+    },
+    "SendTo2020/th-6-a_b.shx": {
+     "sha256": [
+      "ab8c19c1c1c818bdbda7285238496b828e664067c7fce1b93b0a347cfc02d49c"
+     ],
+     "deterministic": true
+    }
+   },
+   "stara": {
+    "DADOS/TALHOES/th-6-a_b/LIMITE.cpg": {
+     "sha256": [
+      "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/th-6-a_b/LIMITE.dbf": {
+     "sha256": [
+      "9aac6e0880ebb9e47f3bfd276d0a28730f741452731982c07ee234a5e91aa2d1"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/th-6-a_b/LIMITE.prj": {
+     "sha256": [
+      "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/th-6-a_b/LIMITE.shp": {
+     "sha256": [
+      "4fd136f0527015887cea12eb033ff1522e1bd026783d2bc4b12a445704ebe284"
+     ],
+     "deterministic": true
+    },
+    "DADOS/TALHOES/th-6-a_b/LIMITE.shx": {
+     "sha256": [
+      "b9fc63621d9c1e330596eedfc80a0da81bdae83c14cf8aa725f280467cdd3bed"
+     ],
+     "deterministic": true
+    }
+   },
+   "precision_planting": {
+    "TASKDATA/LINKLIST.XML": {
+     "sha256": [
+      "735b83ab8596a0c33955b72ecd0e66dbbaa87b77f4599f4b10d6eb56d63cd769"
+     ],
+     "deterministic": true
+    },
+    "TASKDATA/TASKDATA.XML": {
+     "sha256": [
+      "977093108a0d5113b8045123c44a91a7f8f7222d1496e4e55c3437daaaa429ae"
+     ],
+     "deterministic": true
+    }
+   }
+  }
+ }
+}
