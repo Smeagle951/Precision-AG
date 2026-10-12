@@ -54,6 +54,16 @@ class PlanterWidthWidgetTest(unittest.TestCase):
         self.assertIsNone(machine.to_dict()["track_width_m"])
         self.assertEqual(kinematics_from_planter(machine).track_width_m, 0.0)
 
+    def test_physical_width_is_separate_from_pass_spacing(self):
+        widget = self.widget(width=0.0)
+        widget.use_calculated_width_check.setChecked(True)
+        widget.physical_width_spin.setValue(20.0)
+        machine = widget.build_machine()
+        self.assertAlmostEqual(machine.operational_width_m, 19.0)
+        self.assertAlmostEqual(machine.physical_width_m, 20.0)
+        self.assertAlmostEqual(machine.meeting_spacing_m(), 0.5)
+        self.assertIn("Largura fisica total: 20.00 m", widget.planter_summary_label.text())
+
     def test_working_width_drives_passes_and_rows_only_warn(self):
         widget = self.widget()
         self.assertAlmostEqual(widget.effective_width_m(), 20.0)

@@ -58,6 +58,7 @@ class PlanterMachine:
     informed_operational_width_m: float | None = None
     gnss_offset_m: float = 0.0
     implement_center_offset_m: float = 0.0
+    physical_width_m: float | None = None
 
     @property
     def kind(self) -> MachineKind:
@@ -70,6 +71,8 @@ class PlanterMachine:
             self.geometry_config.validate()
         except PlanterGeometryError as exc:
             raise MachineModelError(f"{exc} ({exc.code})") from exc
+        if self.physical_width_m is not None and self.physical_width_m <= 0:
+            raise MachineModelError("Largura fisica da plantadeira deve ser maior que zero.")
         if self.track is not None:
             self.track.validate()
 
@@ -161,6 +164,7 @@ class PlanterMachine:
             "row_count": self.row_count,
             "row_spacing_m": self.row_spacing_m,
             "operational_width_m": self.operational_width_m,
+            "physical_width_m": self.physical_width_m,
             "track_width_m": self.track.track_width_m if self.track is not None else None,
             "tire_width_m": self.track.tire_width_m if self.track is not None else None,
             "gnss_offset_m": self.gnss_offset_m,

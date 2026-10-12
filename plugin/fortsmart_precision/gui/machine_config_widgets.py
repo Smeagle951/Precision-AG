@@ -111,6 +111,17 @@ class PlanterConfigWidget(QWidget):
         )
         form.addRow(self.use_calculated_width_check)
 
+        self.physical_width_spin = QDoubleSpinBox()
+        self.physical_width_spin.setRange(0.0, 100.0)
+        self.physical_width_spin.setDecimals(3)
+        self.physical_width_spin.setSpecialValueText("nao informado")
+        self.physical_width_spin.setSuffix(" m")
+        self.physical_width_spin.setToolTip(
+            "Largura fisica total medida, separada da distancia entre passadas. "
+            "Nao altera o espacamento das linhas de plantio."
+        )
+        form.addRow("Largura fisica total:", self.physical_width_spin)
+
         self.calc_width_label = QLabel("0,000 m")
         form.addRow("Largura equivalente (linhas x esp.):", self.calc_width_label)
 
@@ -206,6 +217,7 @@ class PlanterConfigWidget(QWidget):
             self.row_count_spin,
             self.row_spacing_spin,
             self.informed_width_spin,
+            self.physical_width_spin,
             self.headland_width_spin,
             self.headland_spin,
             self.extension_spin,
@@ -287,6 +299,10 @@ class PlanterConfigWidget(QWidget):
             f"Largura de trabalho: {self.effective_width_m():.2f} m\n"
             f"Largura pelas linhas: {self.calculated_width_m():.2f} m\n"
             f"Encontro entre passadas: {gap:.2f} m"
+            + (
+                f"\nLargura fisica total: {self.physical_width_spin.value():.2f} m"
+                if self.physical_width_spin.value() > 0 else ""
+            )
         )
         if abs(diff) <= 0.01:
             texto = f"{gap:.3f} m — igual ao espacamento interno (ok)"
@@ -339,6 +355,10 @@ class PlanterConfigWidget(QWidget):
             row_spacing_m=self.row_spacing_spin.value(),
             track=None,
             informed_operational_width_m=self.configured_width_m(),
+            physical_width_m=(
+                self.physical_width_spin.value()
+                if self.physical_width_spin.value() > 0 else None
+            ),
         )
         machine.validate()
         return machine
