@@ -1,0 +1,255 @@
+﻿arquivo,tipo,nome,linha,classe_pai,args
+legacy/aap_gis_v2/AAP_GIS_Plugin/__init__.py,function,classFactory,1,,iface
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,class,AAPGISPlugin,17,,
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,__init__,20,AAPGISPlugin,"self, iface"
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,initGui,25,AAPGISPlugin,self
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,onClosePlugin,33,AAPGISPlugin,self
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,run,40,AAPGISPlugin,self
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,class,AAPGISDock,49,,
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,__init__,52,AAPGISDock,"self, iface"
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,setup_ui,57,AAPGISDock,self
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,selecionar_talhao,125,AAPGISDock,self
+legacy/aap_gis_v2/AAP_GIS_Plugin/aap_plugin.py,method,executar_projeto,136,AAPGISDock,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,class,ProjetarPlantioAlgorithm,23,,
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,tr,34,ProjetarPlantioAlgorithm,"self, string"
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,name,37,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,displayName,40,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,group,43,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,groupId,46,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,shortHelpString,49,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,initAlgorithm,62,ProjetarPlantioAlgorithm,"self, config"
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,processAlgorithm,107,ProjetarPlantioAlgorithm,"self, parameters, context, feedback"
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,method,createInstance,170,ProjetarPlantioAlgorithm,self
+legacy/aap_gis_v2/AAP_GIS_Projetar_Plantio.py,function,register_algorithm,175,,
+legacy/aap_gis_v2/aap_botao_qgis.py,function,abrir_dialogo_aap,31,,
+legacy/aap_gis_v2/aap_botao_qgis.py,function,executar,74,,
+legacy/aap_gis_v2/aap_gis_interface_completa.py,function,criar_interface_aap_gis,24,,
+legacy/aap_gis_v2/aap_gis_interface_completa.py,function,log,731,,msg
+legacy/aap_gis_v2/aap_gis_interface_completa.py,function,atualizar_combos_talhoes,735,,
+legacy/aap_gis_v2/aap_gis_interface_completa.py,function,atualizar_combos_dem,749,,
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,class,AAPGISInterface,27,,
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,__init__,30,AAPGISInterface,"self, iface"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,setup_ui,36,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_projeto,75,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_importar,121,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_bordadura,176,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_plantio,268,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_pulverizacao,363,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_relevo,406,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_zonas,448,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_exportar,490,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_tab_pipeline,555,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_log_section,609,AAPGISInterface,"self, parent_layout"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,create_buttons_final,626,AAPGISInterface,"self, parent_layout"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,log,647,AAPGISInterface,"self, msg"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,selecionar_arquivo,652,AAPGISInterface,"self, line_edit, filtro"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,selecionar_pasta,659,AAPGISInterface,"self, line_edit"
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,selecionar_pasta_projeto,666,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,atualizar_camadas,670,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,adicionar_maquina,695,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,calcular_espacamento,700,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,criar_projeto,715,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,importar_talhao,746,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,gerar_bordadura,780,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,gerar_plantio,854,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,gerar_pulverizacao,917,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,analisar_relevo,966,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,gerar_zonas,991,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,exportar,1012,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,method,executar_pipeline,1041,AAPGISInterface,self
+legacy/aap_gis_v2/aap_gis_interface_funcional.py,function,abrir_interface,1082,,
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,gerar_zonas_terreno_apenas,39,,"id_talhao, dem_path, tipo_solo, pesos_personalizados"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,importar_mapa_produtividade,213,,"caminho_arquivo, formato, projeto_path"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,importar_ndvi_historico,328,,"ndvi_paths, projeto_path"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,importar_analise_solo,389,,"solo_paths, projeto_path"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,gerar_zonas_clustering,466,,"id_talhao, dem_path, produtividade_paths, ndvi_paths, solo_paths, n_zonas, area_minima_ha, pesos_variaveis"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,gerar_zonas_saga,578,,"id_talhao, dem_path, n_zonas"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,gerar_tabela_reclassificacao,700,,n_zonas
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,interpretar_zona_simplificada,716,,"zona_k, n_zonas"
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,interpretar_zona,731,,stats
+legacy/aap_gis_v2/aap_part10_zonas_dados.py,function,gerar_zonas_manejo_dados,772,,"id_talhao, dem_path, modo, tipo_solo, produtividade_paths, ndvi_paths, solo_paths, n_zonas, area_minima_ha"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,importar_operacao_jd,35,,"zip_path, tipo_operacao"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,converter_pontos_trilhas,143,,telemetria_layer
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,calcular_cobertura_real,191,,"trilhas_layer, talhao_geom, largura_barra_m, section_control"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,calcular_sobreposicao,274,,"area_coberta_layer, talhao_geom"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,analisar_desvio_trilha,310,,"linhas_planejadas, trilhas_executadas, tolerancia_cm"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,analisar_taxa_aplicacao,370,,"trilhas_executadas, zonas_manejo, taxa_prescrita, tolerancia_pct"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,gerar_relatorio_conformidade,420,,"id_talhao, tipo_operacao, dados_cobertura, dados_desvio, dados_taxa, caminho_saida"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,atualizar_historico,561,,"id_talhao, safra, operacao, dados"
+legacy/aap_gis_v2/aap_part11_conformidade.py,function,analisar_conformidade_completa,626,,"id_talhao, zip_jd_path, tipo_operacao, largura_barra_m, taxa_prescrita, gerar_relatorio_flag"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_taskdata_xml,34,,"zonas_layer, produto_info, doses_por_zona, talhao_info, metodo, output_path"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_device_xml,250,,"marca, modelo, output_path"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_grid_prescricao,352,,"zonas_layer, produto_coluna, resolucao_m"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_prescricao_multi_produtos,386,,"zonas_layer, produtos, doses_por_zona_por_produto, talhao_info, output_path"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,validar_isoxml,439,,"xml_path, xsd_path"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,empacotar_prescricao,497,,"task_id, output_dir, marca"
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_readme_importacao,547,,marca
+legacy/aap_gis_v2/aap_part12_isoxml_profissional.py,function,gerar_prescricao_isoxml_completa,595,,"zonas_layer, produto, doses_por_zona, talhao_info, marca_monitor, modelo_monitor, metodo, output_dir"
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,recomendar_direcao_plantio,28,,"id_talhao, cultura, safra, dem_path, historico"
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,recomendar_largura_bordadura,95,,"id_talhao, cultura, maquinario_disponivel, projeto_path"
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,recomendar_dose_por_zona,163,,"zonas_manejo, cultura, produto"
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,gerar_alertas_proativos,227,,"id_talhao, dem_path, zonas_manejo, projeto_path"
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,salvar_api_esqueleto,369,,caminho_saida
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,salvar_dashboard_esqueleto,450,,caminho_saida
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,salvar_sql_schema,549,,caminho_saida
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,salvar_docker_compose,601,,caminho_saida
+legacy/aap_gis_v2/aap_part13_motor_decisao.py,function,executar_motor_decisao,615,,"id_talhao, cultura, safra, dem_path, projeto_path"
+legacy/aap_gis_v2/aap_part1_setup.py,class,AAPConfig,27,,
+legacy/aap_gis_v2/aap_part1_setup.py,function,criar_camada_talhoes,67,,gpkg_path
+legacy/aap_gis_v2/aap_part1_setup.py,function,criar_camada_bordaduras,103,,gpkg_path
+legacy/aap_gis_v2/aap_part1_setup.py,function,criar_camada_linhas_plantio,133,,gpkg_path
+legacy/aap_gis_v2/aap_part1_setup.py,function,criar_camada_linhas_pulverizacao,167,,gpkg_path
+legacy/aap_gis_v2/aap_part1_setup.py,function,criar_camada_linha_ab,199,,gpkg_path
+legacy/aap_gis_v2/aap_part1_setup.py,function,aplicar_estilo_talhoes,233,,layer
+legacy/aap_gis_v2/aap_part1_setup.py,function,aplicar_estilo_bordaduras,246,,layer
+legacy/aap_gis_v2/aap_part1_setup.py,function,aplicar_estilo_linhas_plantio,260,,layer
+legacy/aap_gis_v2/aap_part1_setup.py,function,aplicar_estilo_linhas_pulverizacao,272,,layer
+legacy/aap_gis_v2/aap_part1_setup.py,function,aplicar_estilo_linha_ab,284,,layer
+legacy/aap_gis_v2/aap_part1_setup.py,function,configurar_projeto_aap,300,,"projeto_path, nome_fazenda, ano, epsg_utm"
+legacy/aap_gis_v2/aap_part1_setup.py,function,executar_setup,418,,
+legacy/aap_gis_v2/aap_part1_setup.py,function,validar_ambiente,461,,projeto_path
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_shapefile,30,,"caminho_shp, epsg_destino"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_kml,75,,"caminho_kml, epsg_destino"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_geojson,114,,"caminho_geojson, epsg_destino"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_csv_coordenadas,150,,"caminho_csv, epsg_destino"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_talhao,224,,"caminho_arquivo, epsg_destino"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,limpar_geometrias,254,,layer
+legacy/aap_gis_v2/aap_part2_importacao.py,function,validar_talhoes,347,,"layer, area_min_ha"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,gerar_relatorio_validacao,428,,"relatorio, caminho_saida"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_dem,463,,"caminho_dem, epsg_destino, extensao_buffer"
+legacy/aap_gis_v2/aap_part2_importacao.py,function,importar_e_processar_talhao,541,,"caminho_arquivo, nome_talhao, cultura, safra, projeto_path, epsg_utm"
+legacy/aap_gis_v2/aap_part3_bordadura.py,class,BordaduraConfig,27,,
+legacy/aap_gis_v2/aap_part3_bordadura.py,method,calcular_largura_bordadura,40,BordaduraConfig,"cultura, largura_maquina, n_passadas"
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,gerar_bordadura,67,,"id_talhao, largura_m, n_passadas, cultura, tipo"
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,gerar_bordaduras_lote,231,,"lista_ids, params_dict"
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,validar_bordadura,277,,id_bordadura
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,gerar_bordadura_diferencial,363,,"id_talhao, larguras_por_lado, cultura"
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,calcular_indice_compacidade,442,,geometry
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,verificar_casos_especiais,468,,id_talhao
+legacy/aap_gis_v2/aap_part3_bordadura.py,function,tabela_referencia,528,,
+legacy/aap_gis_v2/aap_part4_plantio.py,class,PlantioConfig,29,,
+legacy/aap_gis_v2/aap_part4_plantio.py,method,get_espacamento,41,PlantioConfig,"cultura, espacamento_custom"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,calcular_azimute,55,,"ponto_a, ponto_b"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,calcular_direcao_auto_eixo,76,,geometry
+legacy/aap_gis_v2/aap_part4_plantio.py,function,calcular_direcao_auto_slope,100,,"dem_path, geometry, intervalo"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,criar_linha_ab,166,,"id_talhao, metodo, azimute_manual, ponto_a, ponto_b"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,gerar_linhas_plantio,281,,"id_talhao, cultura, espacamento_m, metodo_direcao, azimute_manual, ponto_a, ponto_b, centralizar"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,calcular_azimute_otimo,484,,"id_talhao, dem_path"
+legacy/aap_gis_v2/aap_part4_plantio.py,function,tabela_referencia_plantio,522,,
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,class,PulverizadoraConfig,28,,
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,method,get_config,45,PulverizadoraConfig,"preset, largura_barra, sobreposicao"
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,method,calcular_espacamento_efetivo,66,PulverizadoraConfig,"largura_barra, sobreposicao_pct"
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,function,gerar_linhas_pulverizacao,84,,"id_talhao, largura_barra_m, sobreposicao_pct, incluir_bordadura, preset_maquina, densidade_calda_l_ha, velocidade_km_h"
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,function,verificar_alinhamento_plantio_pulverizacao,292,,id_talhao
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,function,gerar_linhas_bordadura_pulverizacao,367,,"id_talhao, largura_barra_m"
+legacy/aap_gis_v2/aap_part5_pulverizacao.py,function,tabela_presets_pulverizadoras,453,,
+legacy/aap_gis_v2/aap_part6_relevo.py,class,SlopeClasses,26,,
+legacy/aap_gis_v2/aap_part6_relevo.py,method,get_classe,43,SlopeClasses,slope_graus
+legacy/aap_gis_v2/aap_part6_relevo.py,function,pre_processar_dem,55,,"dem_layer, saida_path"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,analisar_slope,124,,"dem_layer, saida_slope_graus, saida_slope_pct"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,reclassificar_slope,169,,"slope_layer, saida_classes"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,analisar_aspecto,210,,"dem_layer, saida_aspecto"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,analisar_curvatura,245,,"dem_layer, saida_curvatura"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,analisar_fluxo_agua,279,,"dem_layer, saida_flow_dir, saida_flow_acc, saida_twi"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,gerar_mapa_risco_operacional,337,,"slope_layer, twi_layer, saida_risco"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,analisar_terreno,387,,"dem_path, talhao_id, projeto_path"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,gerar_relatorio_terreno,498,,"talhao_id, estatisticas, projeto_path"
+legacy/aap_gis_v2/aap_part6_relevo.py,function,tabela_referencia_slope,533,,
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,cruzar_linhas_slope,27,,"id_talhao, slope_raster_path"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,colorir_linhas_por_classe,116,,"id_talhao, linhas_classificadas"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,detectar_conflitos_erosao,166,,"id_talhao, flow_acc_raster_path"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,gerar_zonas_manejo,236,,"id_talhao, slope_raster_path, twi_raster_path, curvatura_raster_path, n_zonas, saida_path"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,analisar_curvas_nivel,348,,"id_talhao, dem_raster_path, equidistancia"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,analisar_cruzamentos,397,,"id_talhao, projeto_path"
+legacy/aap_gis_v2/aap_part7_cruzamento.py,function,gerar_relatorio_talhao,476,,"id_talhao, projeto_path, output_path"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,exportar_para_shapefile,31,,"layer, caminho_saida, epsg_destino, encoding"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,mapear_atributos_exportacao,82,,layer
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,exportar_para_jacto,113,,"layer, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,exportar_para_johndeere,136,,"layer, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,exportar_para_newholland,163,,"layer, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,exportar_para_stara,192,,"layer, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,gerar_prescricao_isoxml,226,,"zonas_layer, produto, doses_por_zona, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,validar_exportacao,288,,layer
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,imprimir_relatorio_validacao,343,,validacao
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,executar_pipeline_completo,366,,"arquivo_talhao, pasta_saida, config"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,gerar_documentacao_saida,521,,"pasta_saida, config"
+legacy/aap_gis_v2/aap_part8_exportacao.py,function,tabela_referencia_exportacao,593,,
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,renomear_atributos_exportacao,47,,layer
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,exportar_para_shapefile,119,,"layer, caminho_saida, epsg_destino, encoding, renomear_atributos_flag"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,exportar_para_jacto,186,,"layer, caminho_base, nome_talhao"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,exportar_para_johndeere,220,,"layer, caminho_base, nome_talhao"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,exportar_para_newholland,255,,"layer, caminho_base, nome_talhao"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,exportar_para_stara,303,,"layer, caminho_base, nome_talhao"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,gerar_prescricao_isoxml,353,,"zonas_layer, produto, doses_por_zona, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,gerar_isoxml_exemplo,423,,caminho_saida
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,importar_dados_johndeere,467,,"zip_path, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,processar_trilhas_operacao,536,,"telemetria_layer, largura_barra_m"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,gerar_mapa_cobertura_real,572,,"telemetria_layer, talhao_layer, largura_barra_m, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,class,AAPPipelineTask,633,,
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,method,__init__,638,AAPPipelineTask,"self, arquivo_talhao, arquivo_dem, pasta_saida, config"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,method,run,647,AAPPipelineTask,self
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,method,finished,793,AAPPipelineTask,"self, result"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,executar_pipeline_completo,803,,"arquivo_talhao, pasta_saida, arquivo_dem, config"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,validar_exportacao_final,867,,"layer, caminho_shp"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,imprimir_relatorio_validacao,951,,validacao
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,gerar_documentacao_saida,985,,"pasta_saida, config"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,gerar_metadados_xml,1068,,"layer, caminho_saida"
+legacy/aap_gis_v2/aap_part8_exportacao_expanded.py,function,tabela_referencia_exportacao,1101,,
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_angulo_otimo,33,,"id_talhao, dem_path, cultura, pesos, passo_graus, fator_erosividade, fator_consumo"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_paralelas_hipoteticas,235,,"geom, angulo_graus, espacamento"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_custo_manobra,292,,"n_linhas, area_ha, cultura"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_custo_erosao,304,,"linhas, slope_layer, angulo_graus, fator_erosividade"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_custo_combustivel,330,,"linhas, slope_layer, angulo_graus, fator_consumo"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_custo_sobreposicao,350,,linhas
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,normalizar_lista,377,,valores
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_justificativa_angulo,391,,"angulo, alternativo, c_manobra, c_erosao, c_combustivel, c_sobreposicao"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,exportar_grafico_custo,409,,"resultado, caminho_saida"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_curva_nivel,451,,"id_talhao, dem_path, cultura, equidistancia_m, raio_min_maquina_m, comprimento_min_m"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,obter_espacamento_cultura,668,,cultura
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,adaptar_curvas_raio_minimo,681,,"curvas_layer, raio_min"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,recortar_por_poligono,710,,"linhas, poligono"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_area_coberta_linhas,731,,"linhas, espacamento"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_transversais_acesso,754,,"curvas_nivel, espacamento_transversal"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_adaptativas,774,,"id_talhao, dem_path, cultura, espacamento_m"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,dividir_talhao_faixas,938,,"geom, largura_faixa"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,calcular_slope_medio_faixa,974,,"faixa_geom, slope_layer"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_faixa_estrategia,1003,,"faixa, estrategia, espacamento, slope_medio"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_retas_faixa,1023,,"faixa, espacamento"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_deflexao_faixa,1049,,"faixa, espacamento, deflexao_max_graus"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,selecionar_estrategia_linhas,1059,,"id_talhao, dem_path"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,gerar_linhas_agronomicas,1141,,"id_talhao, dem_path, cultura, estrategia, espacamento_m, config"
+legacy/aap_gis_v2/aap_part9_linhas_agronomicas.py,function,comparar_linhas_geometricas_vs_agronomicas,1246,,"id_talhao, dem_path, cultura"
+legacy/aap_gis_v2/aap_simple_api.py,function,criar_projeto_plantio,36,,"arquivo_talhao, cultura, maquina, largura_barra_m, nome_talhao, nome_fazenda, projeto_path"
+legacy/aap_gis_v2/aap_simple_api.py,function,obter_bordadura_automatica,205,,cultura
+legacy/aap_gis_v2/aap_simple_api.py,function,escolher_estrategia_automatica,220,,"id_talhao, dem_path, cultura"
+legacy/aap_gis_v2/aap_simple_api.py,function,identificar_monitor,233,,maquina
+legacy/aap_gis_v2/aap_simple_api.py,function,gerar_resultado_simples,252,,"id_talhao, cultura, maquina, projeto_path"
+legacy/aap_gis_v2/aap_simple_api.py,function,plantar,308,,"arquivo_talhao, cultura"
+legacy/aap_gis_v2/aap_single_flow.py,function,fluxo_unico_inteligente,25,,"arquivo_talhao, cultura, maquina, largura_barra_m, projeto_path"
+legacy/aap_gis_v2/aap_single_flow.py,function,calcular_kpis,108,,dados
+legacy/aap_gis_v2/aap_single_flow.py,function,mostrar_resultado_usuario,131,,resultado
+legacy/aap_gis_v2/gerar_livro.py,function,escape_html,65,,s
+legacy/aap_gis_v2/gerar_livro.py,function,p_tag,75,,text
+legacy/aap_gis_v2/gerar_livro.py,function,h2_tag,80,,text
+legacy/aap_gis_v2/gerar_livro.py,function,ul_tag,85,,items
+legacy/aap_gis_v2/gerar_livro.py,function,get_chapter_content,243,,"chapter_num, chapter_title"
+legacy/aap_gis_v2/gerar_livro.py,function,create_page,948,,"content, is_last"
+legacy/aap_gis_v2/gerar_livro.py,function,create_chapter_pages,954,,"chapter_num, chapter_title, num_pages"
+legacy/aap_gis_v2/gerar_livro.py,function,build_html,1027,,
+legacy/aap_gis_v2/gerar_livro.py,function,ensure_dir,1531,,path
+legacy/aap_gis_v2/gerar_livro.py,function,write_file,1536,,"path, content"
+legacy/aap_gis_v2/gerar_livro.py,function,html_to_pdf,1542,,"html_path, pdf_path"
+legacy/aap_gis_v2/gerar_livro.py,function,main,1584,,
+legacy/aap_gis_v2/instalar_plugin_aap_gis.py,function,detectar_pasta_plugins,27,,
+legacy/aap_gis_v2/instalar_plugin_aap_gis.py,function,verificar_plugin_origem,57,,
+legacy/aap_gis_v2/instalar_plugin_aap_gis.py,function,instalar_plugin,74,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,print_banner,61,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,verificar_scripts,75,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,configurar_python_path,105,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,verificar_projeto,126,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,executar_configuracao_inicial,151,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,criar_atalho_console,177,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,imprimir_instrucoes_uso,222,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,imprimir_estrutura_projeto,265,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,imprimir_checklist_instalacao,282,,
+legacy/aap_gis_v2/install_aap_gis_qgis.py,function,main,308,,

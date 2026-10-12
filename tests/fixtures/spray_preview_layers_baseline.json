@@ -1,0 +1,325 @@
+{
+  "spray_default": {
+    "01_Limite_Externo": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "EXTERNAL_BOUNDARY"
+    },
+    "02_Limite_Interno": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "INTERNAL_BOUNDARY"
+    },
+    "03_Bordadura": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "HEADLAND"
+    },
+    "04_Linha_AB": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_no",
+        "role"
+      ],
+      "role": "AB_LINE"
+    },
+    "05_Limite_Operacional": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "OPERATIONAL_BOUNDARY"
+    },
+    "11_Passadas": {
+      "features": 10,
+      "fields": [
+        "direction",
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "overlap_m",
+        "overlap_nozzles",
+        "overlap_side",
+        "pass_id",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "GUIDANCE_TRACK"
+    },
+    "12_Passadas_Plantio": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "pass_id",
+        "pass_number",
+        "segment_count",
+        "segment_index",
+        "source_candidate_index",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "WORK_PATH"
+    },
+    "13_Linha_Trator": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "pass_id",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "TRACTOR_PATH"
+    },
+    "14_Rastros_Pneus": {
+      "features": 22,
+      "fields": [
+        "fortsmart_role",
+        "pass_id",
+        "side"
+      ],
+      "role": "TIRE_TRACK"
+    },
+    "15_Passadas_Bordadura": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role",
+        "fs_id",
+        "label",
+        "length_m",
+        "offset_m",
+        "pass_no",
+        "role",
+        "segment_count",
+        "segment_index"
+      ],
+      "role": "FIELD_HEADLAND_PATH"
+    },
+    "21_Obstaculos_RTK": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "OBSTACLE"
+    },
+    "22_Zonas_Seguranca": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "SAFETY_ZONE"
+    },
+    "23_Desvios_Obstaculos": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "OBSTACLE_DETOUR"
+    },
+    "31_Linhas_Finais": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "FINAL_WORK_PATH"
+    },
+    "34_Shutoff": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "pass_id",
+        "row_ids_off"
+      ],
+      "role": "SHUTOFF"
+    }
+  },
+  "spray_minimum": {
+    "01_Limite_Externo": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "EXTERNAL_BOUNDARY"
+    },
+    "02_Limite_Interno": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "INTERNAL_BOUNDARY"
+    },
+    "03_Bordadura": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "HEADLAND"
+    },
+    "04_Linha_AB": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_no",
+        "role"
+      ],
+      "role": "AB_LINE"
+    },
+    "05_Limite_Operacional": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "OPERATIONAL_BOUNDARY"
+    },
+    "11_Passadas": {
+      "features": 10,
+      "fields": [
+        "avoidance_type",
+        "direction",
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "obstacle_ids",
+        "overlap_m",
+        "overlap_nozzles",
+        "overlap_side",
+        "pass_id",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "GUIDANCE_TRACK"
+    },
+    "12_Passadas_Plantio": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "pass_id",
+        "pass_number",
+        "segment_count",
+        "segment_index",
+        "source_candidate_index",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "WORK_PATH"
+    },
+    "13_Linha_Trator": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "label",
+        "line_id",
+        "line_no",
+        "line_number",
+        "pass_id",
+        "spacing_m",
+        "width_m"
+      ],
+      "role": "TRACTOR_PATH"
+    },
+    "14_Rastros_Pneus": {
+      "features": 22,
+      "fields": [
+        "fortsmart_role",
+        "pass_id",
+        "side"
+      ],
+      "role": "TIRE_TRACK"
+    },
+    "15_Passadas_Bordadura": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role",
+        "fs_id",
+        "label",
+        "length_m",
+        "offset_m",
+        "pass_no",
+        "role",
+        "segment_count",
+        "segment_index"
+      ],
+      "role": "FIELD_HEADLAND_PATH"
+    },
+    "21_Obstaculos_RTK": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "OBSTACLE"
+    },
+    "22_Zonas_Seguranca": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role",
+        "obstacle_id",
+        "obstacle_radius_m",
+        "operation",
+        "safe_radius_m",
+        "safety_margin_m"
+      ],
+      "role": "SAFETY_ZONE"
+    },
+    "23_Desvios_Obstaculos": {
+      "features": 1,
+      "fields": [
+        "applied_offset_m",
+        "avoidance_type",
+        "boom_width_m",
+        "entry_station_m",
+        "exit_station_m",
+        "fortsmart_role",
+        "minimum_turn_radius_m",
+        "obstacle_id",
+        "operation",
+        "pass_id",
+        "pass_role",
+        "reason",
+        "required_offset_m",
+        "safe_radius_m",
+        "side"
+      ],
+      "role": "OBSTACLE_DETOUR"
+    },
+    "31_Linhas_Finais": {
+      "features": 1,
+      "fields": [
+        "fortsmart_role"
+      ],
+      "role": "FINAL_WORK_PATH"
+    },
+    "34_Shutoff": {
+      "features": 0,
+      "fields": [
+        "fortsmart_role",
+        "pass_id",
+        "row_ids_off"
+      ],
+      "role": "SHUTOFF"
+    }
+  }
+}

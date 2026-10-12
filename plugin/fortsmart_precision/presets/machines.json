@@ -1,0 +1,50 @@
+{
+  "machines": [
+    {
+      "machine_id": "db27_36x050",
+      "name": "DB 27",
+      "kind": "planter",
+      "row_count": 36,
+      "row_spacing_m": 0.5,
+      "track_width_m": 3.0,
+      "tire_width_m": 0.35,
+      "gnss_offset_m": 0.0,
+      "implement_center_offset_m": 0.0
+    },
+    {
+      "machine_id": "planter_36x045",
+      "name": "Plantadeira 36x0,45",
+      "kind": "planter",
+      "row_count": 36,
+      "row_spacing_m": 0.45,
+      "track_width_m": 1.8,
+      "tire_width_m": 0.30,
+      "gnss_offset_m": 0.0,
+      "implement_center_offset_m": 0.0
+    },
+    {
+      "machine_id": "uniport_5030_103x035",
+      "name": "Uniport 5030",
+      "kind": "sprayer",
+      "nozzle_count": 103,
+      "nozzle_spacing_m": 0.35,
+      "boom_width_m": 36.05,
+      "overlap_m": 0.0,
+      "track_width_m": 3.0,
+      "tire_width_m": 0.35
+    },
+    {
+      "machine_id": "jacto_uniport_36",
+      "name": "Jacto Uniport (exemplo)",
+      "kind": "sprayer",
+      "nozzle_count": 72,
+      "nozzle_spacing_m": 0.5,
+      "boom_width_m": 36.0,
+      "overlap_m": 0.0,
+      "track_width_m": 3.065,
+      "tire_width_m": 0.37,
+      "inner_clearance_m": 2.70,
+      "outer_width_m": 3.43
+    }
+  ]
+}

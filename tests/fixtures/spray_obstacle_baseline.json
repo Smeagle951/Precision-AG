@@ -1,0 +1,133 @@
+{
+  "combined_on": {
+    "planting": {
+      "headland": {
+        "count": 1,
+        "digest": "fb667a1438bdb53e767f8d59687713c06b195d9b",
+        "total_m": 1964.0
+      },
+      "passes": {
+        "count": 43,
+        "digest": "1d89059f8f95e5b77acdc04bcb6f9d3c5f330b17",
+        "total_m": 26241.661
+      },
+      "plant_avoided": 4,
+      "planting_results": 4,
+      "rows": 0,
+      "shutoff": 0,
+      "tractor_axes": {
+        "count": 43,
+        "digest": "eb31a1eb3a20c4f498d3d5d3d1f11e781134c4ae",
+        "total_m": 26230.0
+      }
+    },
+    "spraying": {
+      "headland": {
+        "count": 1,
+        "digest": "190383996f93cd4df8f6c04c9652847868f99676",
+        "total_m": 1856.0
+      },
+      "passes": {
+        "count": 9,
+        "digest": "abb7a7a8f279f27b1b86634792b6d4ef0175ac32",
+        "total_m": 5606.217
+      },
+      "spray_avoided": 4,
+      "tire_tracks": 20
+    }
+  },
+  "planting_off": {
+    "planting": {
+      "headland": {
+        "count": 1,
+        "digest": "fb667a1438bdb53e767f8d59687713c06b195d9b",
+        "total_m": 1964.0
+      },
+      "passes": {
+        "count": 43,
+        "digest": "9843a5230638b889f7d58edad41e1ec4186d3922",
+        "total_m": 26230.0
+      },
+      "plant_avoided": 0,
+      "planting_results": 0,
+      "rows": 450,
+      "shutoff": 486,
+      "tractor_axes": {
+        "count": 43,
+        "digest": "eb31a1eb3a20c4f498d3d5d3d1f11e781134c4ae",
+        "total_m": 26230.0
+      }
+    }
+  },
+  "planting_on": {
+    "planting": {
+      "headland": {
+        "count": 1,
+        "digest": "fb667a1438bdb53e767f8d59687713c06b195d9b",
+        "total_m": 1964.0
+      },
+      "passes": {
+        "count": 43,
+        "digest": "1d89059f8f95e5b77acdc04bcb6f9d3c5f330b17",
+        "total_m": 26241.661
+      },
+      "plant_avoided": 4,
+      "planting_results": 4,
+      "rows": 450,
+      "shutoff": 458,
+      "tractor_axes": {
+        "count": 43,
+        "digest": "eb31a1eb3a20c4f498d3d5d3d1f11e781134c4ae",
+        "total_m": 26230.0
+      }
+    }
+  },
+  "spray_default_on": {
+    "spraying": {
+      "headland": {
+        "count": 1,
+        "digest": "190383996f93cd4df8f6c04c9652847868f99676",
+        "total_m": 1856.0
+      },
+      "passes": {
+        "count": 9,
+        "digest": "abb7a7a8f279f27b1b86634792b6d4ef0175ac32",
+        "total_m": 5606.217
+      },
+      "spray_avoided": 4,
+      "tire_tracks": 20
+    }
+  },
+  "spray_off": {
+    "spraying": {
+      "headland": {
+        "count": 1,
+        "digest": "190383996f93cd4df8f6c04c9652847868f99676",
+        "total_m": 1856.0
+      },
+      "passes": {
+        "count": 9,
+        "digest": "5d241e4b7f5042ed623f58373b3691eea8ad3fe3",
+        "total_m": 5580.0
+      },
+      "spray_avoided": 0,
+      "tire_tracks": 20
+    }
+  },
+  "spray_orbit_on": {
+    "spraying": {
+      "headland": {
+        "count": 1,
+        "digest": "190383996f93cd4df8f6c04c9652847868f99676",
+        "total_m": 1856.0
+      },
+      "passes": {
+        "count": 80,
+        "digest": "dc6c93c5cde8ea82db9adbb033de82df5c9558cd",
+        "total_m": 5828.9
+      },
+      "spray_avoided": 4,
+      "tire_tracks": 162
+    }
+  }
+}

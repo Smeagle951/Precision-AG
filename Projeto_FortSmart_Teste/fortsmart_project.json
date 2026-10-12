@@ -1,0 +1,11 @@
+{
+  "project_id": "8d9006cc-1d78-4208-adaa-1c58540aa051",
+  "project_name": "Teste FortSmart",
+  "property_name": "Fazenda Teste",
+  "season_name": "2026/27",
+  "master_crs": "EPSG:31981",
+  "schema_version": 1,
+  "geopackage": "01_BANCO\\fortsmart.gpkg",
+  "created_at": "2026-07-10T23:26:39+00:00",
+  "created_by": "qgis_console"
+}

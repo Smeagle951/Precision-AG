@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model3 name="AAP Bordadura + Linhas + Export" group="AAP GIS" version="3">
+  <description>Modelo AAP GIS para gerar bordadura, linhas de plantio e exportar automaticamente</description>
+  
+  <inputs>
+    <parameter name="INPUT_LAYER" type="vector" datatype="any" label="Camada de talhão (input)">
+      <description>Selecione a camada de talhão (polígono) para processar</description>
+    </parameter>
+    <parameter name="CULTURA" type="string" label="Cultura" default="soja">
+      <description>Cultura: soja, milho, algodao, feijao, sorgo</description>
+    </parameter>
+    <parameter name="LARGURA_MAQUINA" type="number" label="Largura da máquina (m)" default="9.0" min="1.0">
+      <description>Largura da máquina colhedora em metros</description>
+    </parameter>
+    <parameter name="N_PASSADAS" type="number" label="Número de passadas de bordadura" default="2" min="1" max="5" integer="true">
+      <description>Número de passadas para cálculo da bordadura</description>
+    </parameter>
+    <parameter name="ESPACAMENTO_PLANTIO" type="number" label="Espaçamento de plantio (m)" default="0.45" min="0.1">
+      <description>Espaçamento entre linhas de plantio em metros</description>
+    </parameter>
+    <parameter name="METODO_DIRECAO" type="string" label="Método de direção" default="auto_eixo">
+      <description>auto_eixo, auto_slope, manual</description>
+    </parameter>
+    <parameter name="OUTPUT_FOLDER" type="folder" label="Pasta de saída">
+      <description>Pasta onde os arquivos serão salvos</description>
+    </parameter>
+  </inputs>
+  
+  <algorithms>
+    <!-- Step 1: Fix Geometries -->
+    <algorithm name="native:fixgeometries">
+      <param name="INPUT" value="@INPUT_LAYER"/>
+      <param name="OUTPUT" value="memory:talhao_fixed"/>
+    </algorithm>
+    
+    <!-- Step 2: Calculate Border Width -->
+    <algorithm name="native:fieldcalculator">
+      <param name="INPUT" value="memory:talhao_fixed"/>
+      <param name="FIELD_NAME" value="largura_bordadura"/>
+      <param name="FIELD_TYPE" value="0"/>
+      <param name="FIELD_LENGTH" value="10"/>
+      <param name="FIELD_PRECISION" value="2"/>
+      <param name="FORMULA" value="@LARGURA_MAQUINA * @N_PASSADAS"/>
+      <param name="OUTPUT" value="memory:talhao_with_bordadura"/>
+    </algorithm>
+    
+    <!-- Step 3: Buffer (Bordadura) -->
+    <algorithm name="native:buffer">
+      <param name="INPUT" value="memory:talhao_with_bordadura"/>
+      <param name="DISTANCE" value="-largura_bordadura"/>
+      <param name="SEGMENTS" value="20"/>
+      <param name="END_CAP_STYLE" value="0"/>
+      <param name="JOIN_STYLE" value="0"/>
+      <param name="MITER_LIMIT" value="2"/>
+      <param name="DISSOLVE" value="false"/>
+      <param name="OUTPUT" value="memory:bordadura"/>
+    </algorithm>
+    
+    <!-- Step 4: Extract AB Line Direction -->
+    <algorithm name="native:orientedminimumboundingbox">
+      <param name="INPUT" value="memory:bordadura"/>
+      <param name="OUTPUT" value="memory:bounding_box"/>
+    </algorithm>
+    
+    <!-- Step 5: Generate Parallel Lines (simplified) -->
+    <algorithm name="native:orientedminimumboundingbox">
+      <param name="INPUT" value="memory:bordadura"/>
+      <param name="OUTPUT" value="memory:lines_temp"/>
+    </algorithm>
+    
+    <!-- Step 6: Clip Lines by Bordadura -->
+    <algorithm name="native:clip">
+      <param name="INPUT" value="memory:lines_temp"/>
+      <param name="OVERLAY" value="memory:bordadura"/>
+      <param name="OUTPUT" value="memory:linhas_plantio"/>
+    </algorithm>
+    
+    <!-- Step 7: Add Attributes to Lines -->
+    <algorithm name="native:fieldcalculator">
+      <param name="INPUT" value="memory:linhas_plantio"/>
+      <param name="FIELD_NAME" value="cultura"/>
+      <param name="FIELD_TYPE" value="2"/>
+      <param name="FIELD_LENGTH" value="30"/>
+      <param name="FIELD_PRECISION" value="0"/>
+      <param name="FORMULA" value="'@CULTURA'"/>
+      <param name="OUTPUT" value="memory:linhas_with_attrs"/>
+    </algorithm>
+    
+    <!-- Step 8: Reproject to WGS84 -->
+    <algorithm name="native:reprojectlayer">
+      <param name="INPUT" value="memory:linhas_with_attrs"/>
+      <param name="TARGET_CRS" value="EPSG:4326"/>
+      <param name="OUTPUT" value="memory:linhas_wgs84"/>
+    </algorithm>
+    
+    <!-- Step 9: Export Talhão -->
+    <algorithm name="native:savefeatures">
+      <param name="INPUT" value="memory:talhao_with_bordadura"/>
+      <param name="OUTPUT" value="@OUTPUT_FOLDER/talhao.shp"/>
+    </algorithm>
+    
+    <!-- Step 10: Export Bordadura -->
+    <algorithm name="native:savefeatures">
+      <param name="INPUT" value="memory:bordadura"/>
+      <param name="OUTPUT" value="@OUTPUT_FOLDER/bordadura.shp"/>
+    </algorithm>
+    
+    <!-- Step 11: Export Linhas -->
+    <algorithm name="native:savefeatures">
+      <param name="INPUT" value="memory:linhas_wgs84"/>
+      <param name="OUTPUT" value="@OUTPUT_FOLDER/linhas_plantio.shp"/>
+    </algorithm>
+  </algorithms>
+  
+  <outputs>
+    <output name="TALHAO_OUTPUT" value="@OUTPUT_FOLDER/talhao.shp" label="Talhão exportado"/>
+    <output name="BORDADURA_OUTPUT" value="@OUTPUT_FOLDER/bordadura.shp" label="Bordadura exportada"/>
+    <output name="LINHAS_OUTPUT" value="@OUTPUT_FOLDER/linhas_plantio.shp" label="Linhas de plantio exportadas"/>
+  </outputs>
+  
+  <help>
+    <h1>Modelo AAP GIS - Bordadura + Linhas + Export</h1>
+    <p>Este modelo automatiza a geração de bordadura, linhas de plantio e exportação para monitores agrícolas.</p>
+    
+    <h2>Como usar:</h2>
+    <ol>
+      <li>Abra o QGIS Processing Toolbox (Ctrl+Alt+T)</li>
+      <li>Navegue até "Models" → "AAP GIS"</li>
+      <li>Duplo clique em "AAP Bordadura + Linhas + Export"</li>
+      <li>Configure os parâmetros conforme necessário</li>
+      <li>Clique em "Run" para executar</li>
+    </ol>
+    
+    <h2>Parâmetros:</h2>
+    <ul>
+      <li><strong>CAMADA DE TALHÃO:</strong> Selecione a camada de polígono do talhão</li>
+      <li><strong>CULTURA:</strong> Especifique a cultura (soja, milho, algodao, etc.)</li>
+      <li><strong>LARGURA DA MÁQUINA:</strong> Largura da colhedora em metros</li>
+      <li><strong>NÚMERO DE PASSADAS:</strong> Quantas passadas de bordadura (padrão: 2)</li>
+      <li><strong>ESPAÇAMENTO:</strong> Espaçamento entre linhas de plantio em metros</li>
+      <li><strong>MÉTODO DIREÇÃO:</strong> auto_eixo (padrão) ou auto_slope</li>
+      <li><strong>PASTA DE SAÍDA:</strong> Onde salvar os arquivos SHP</li>
+    </ul>
+    
+    <h2>Arquivos gerados:</h2>
+    <ul>
+      <li>talhao.shp - Talhão processado</li>
+      <li>bordadura.shp - Polígono da bordadura</li>
+      <li>linhas_plantio.shp - Linhas de plantio (WGS84)</li>
+    </ul>
+    
+    <h2>Notas:</h2>
+    <ul>
+      <li>Os arquivos são exportados em WGS84 para compatibilidade com monitores</li>
+      <li>Verifique o relatório de validação antes de enviar para máquina</li>
+      <li>Para funcionalidade completa, use os scripts PyQGIS do sistema</li>
+    </ul>
+  </help>
+</model3>

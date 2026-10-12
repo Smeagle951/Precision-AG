@@ -1,0 +1,12 @@
+[general]
+name=FortSmart Precision Planner
+qgisMinimumVersion=3.34
+qgisMaximumVersion=4.99
+description=Planejamento e validacao de operacoes agricolas georreferenciadas.
+version=0.1.0
+author=Jeferson Fortunato - FortSmart
+email=
+about=Plugin QGIS para agricultura de precisao com GeoPackage, validacao e exportacao por perfis.
+category=Analysis
+experimental=True
+deprecated=False

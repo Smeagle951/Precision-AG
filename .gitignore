@@ -1,0 +1,8 @@
+# Artefatos locais e caches Python/QGIS
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Backups de perfil podem conter tokens e configuracoes pessoais.
+backups/
+plugin/backups/

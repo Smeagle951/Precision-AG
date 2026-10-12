@@ -1,0 +1,145 @@
+def _apply_obstacle_avoidance(self) -> None:
+        """Etapa livre: aplica desvio nas linhas ja geradas/importadas (ou gera o que faltar)."""
+        try:
+            if self.isMinimized():
+                self.showNormal()
+            self.setEnabled(False)
+            try:
+                from qgis.PyQt.QtCore import Qt
+                from qgis.PyQt.QtWidgets import QApplication
+
+                QApplication.setOverrideCursor(Qt.WaitCursor)
+            except Exception:
+                pass
+            self._ensure_workspace_layers_metric(silent=True)
+            self.enable_avoidance.setChecked(True)
+            self.enable_avoidance.setEnabled(True)
+
+            has_plant = bool(self.last_result and self.last_result.planting_passes)
+            has_spray = bool(self.last_result and self.last_result.spraying_passes)
+            if not has_plant and not has_spray:
+                raise ValueError(
+                    "Gere primeiro as linhas (botao 1/2) ou importe AdaptiveCurve, "
+                    "depois aba 4: camada de obstaculos, raio, e 'Aplicar desvio'."
+                )
+
+            field = self.field_combo.currentLayer()
+            if field is None:
+                raise ValueError("Selecione o talhao na aba 1.")
+            crs_authid, target_crs, _was_geo = resolve_metric_target_crs(field)
+            self.work_crs_authid = crs_authid
+            obstacles = self._build_obstacles(target_crs)
+            if not obstacles:
+                raise ValueError(
+                    "Nenhum obstaculo carregado. Selecione uma camada com pontos "
+                    "na aba 4 (nao use PointFeature vazia)."
+                )
+
+            config = AvoidanceConfiguration(mode=AvoidanceMode.CONCENTRIC_RING)
+            sprayer = self.sprayer_widget.build_machine()
+            planter = self.planter_widget.build_machine()
+            field_mp = multipolygon_from_polygon_layer(field, target_crs)
+
+            spraying_passes = list(self.last_result.spraying_passes)
+            planting_passes = list(self.last_result.planting_passes)
+            avoided_paths = []
+            planting_results = list(self.last_result.planting_avoidance_results or [])
+            envelopes = []
+
+            if spraying_passes:
+                spraying_passes, spray_avoided = apply_application_obstacle_avoidance(
+                    spraying_passes,
+                    obstacles,
+                    sprayer,
+                    config,
+                    allowed_area=field_mp or None,
+                )
+                avoided_paths.extend(spray_avoided)
+                envelopes = merge_adjacent_envelopes(
+                    build_all_envelopes(obstacles, sprayer),
+                    config.merge_adjacent_envelopes_m,
+                )
+
+            if planting_passes and self.enable_avoidance.isChecked():
+                # Plantio: regenera via pipeline so se nao houver spray importado exclusivo.
+                # Preferir desvio de aplicacao nas passadas ja presentes.
+                from ..core.planting_obstacle_engine import (
+                    apply_planting_avoidance_to_passes,
+                )
+                from ..core.planting_kinematics_engine import kinematics_from_planter
+                from ..domain.planting_avoidance_configuration import (
+                    PlantingAvoidanceConfiguration,
+                    PlantingAvoidanceStrategy,
+                )
+
+                kinematics = kinematics_from_planter(planter)
+                plant_cfg = PlantingAvoidanceConfiguration(
+                    strategy=PlantingAvoidanceStrategy(
+                        self.strategy_combo.currentData()
+                        if getattr(self, "strategy_combo", None) is not None
+                        else "auto"
+                    ),
+                    inner_margin_m=self.inner_margin_spin.value()
+                    if getattr(self, "inner_margin_spin", None) is not None
+                    else 0.5,
+                    outer_margin_m=self.outer_margin_spin.value()
+                    if getattr(self, "outer_margin_spin", None) is not None
+                    else 0.5,
+                    merge_obstacles_m=self.merge_spin.value()
+                    if getattr(self, "merge_spin", None) is not None
+                    else 2.0,
+                    minimum_turn_radius_m=self.planter_widget.turn_radius_m(),
+                    enabled=True,
+                )
+                planting_passes, planting_results, plant_avoided = apply_planting_avoidance_to_passes(
+                    planting_passes,
+                    obstacles,
+                    kinematics,
+                    plant_cfg,
+                    planter,
+                    allowed_area=field_mp or None,
+                )
+                avoided_paths.extend(plant_avoided)
+                if not envelopes:
+                    envelopes = merge_adjacent_envelopes(
+                        build_all_envelopes(obstacles, planter),
+                        plant_cfg.merge_obstacles_m,
+                    )
+
+            result = PrecisionLinesResult(
+                project=self.last_result.project,
+                boundary=self.last_result.boundary,
+                planting_passes=planting_passes,
+                planting_rows=list(self.last_result.planting_rows),
+                spraying_passes=spraying_passes,
+                tramline_zones=list(self.last_result.tramline_zones),
+                shutoff_segments=list(self.last_result.shutoff_segments),
+                shutoff_table=list(self.last_result.shutoff_table),
+                avoided_paths=avoided_paths,
+                obstacle_envelopes=envelopes,
+                avoidance_table=avoidance_summary(avoided_paths),
+                planting_avoidance_results=planting_results,
+                forbidden_regions=list(self.last_result.forbidden_regions or []),
+                validation=self.last_result.validation,
+                spraying_boundary=self.last_result.spraying_boundary,
+                tire_tracks=list(self.last_result.tire_tracks),
+            )
+            self.last_result = result
+            self._show_result(
+                result,
+                step=f"Desvio aplicado ({len(obstacles)} obstaculo(s), {len(avoided_paths)} path(s))",
+            )
+            self._select_preview_layers_in_cross_combos()
+            self._announce_generation(result, "Desvio de obstaculos")
+        except Exception as exc:
+            if self.isMinimized():
+                self.showNormal()
+            self._warn_crs_error(exc)
+        finally:
+            self.setEnabled(True)
+            try:
+                from qgis.PyQt.QtWidgets import QApplication
+
+                QApplication.restoreOverrideCursor()
+            except Exception:
+                pass

@@ -1,0 +1,2 @@
+xhtml2pdf>=0.2.11
+shapely>=2.0.0

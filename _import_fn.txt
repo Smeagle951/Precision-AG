@@ -1,0 +1,130 @@
+def _import_adaptive_curve(self) -> None:
+        """Importa AdaptiveCurve: corta U, estende pontas, desvia so obstaculos novos."""
+        try:
+            if self.isMinimized():
+                self.showNormal()
+            self.setEnabled(False)
+            try:
+                from qgis.PyQt.QtCore import Qt
+                from qgis.PyQt.QtWidgets import QApplication
+
+                QApplication.setOverrideCursor(Qt.WaitCursor)
+            except Exception:
+                pass
+
+            self._ensure_workspace_layers_metric(silent=True)
+            field_layer = self.field_combo.currentLayer()
+            curve_layer = getattr(self, "adaptive_curve_combo", None)
+            curve_layer = curve_layer.currentLayer() if curve_layer is not None else None
+            if field_layer is None:
+                raise ValueError("Selecione o talhao (Boundary) na aba 1.")
+            if curve_layer is None or not is_line_like_vector_layer(curve_layer):
+                raise ValueError(
+                    "Selecione a camada AdaptiveCurve / plano completo na aba 1 "
+                    "(grupo AdaptiveCurve pronta)."
+                )
+
+            crs_authid, target_crs, _was_geo = resolve_metric_target_crs(field_layer)
+            self.work_crs_authid = crs_authid
+            field_mp = multipolygon_from_polygon_layer(field_layer, target_crs)
+            if not field_mp:
+                raise ValueError("Talhao sem poligono util no CRS de trabalho.")
+
+            polylines = all_polylines_from_line_layer(curve_layer, target_crs)
+            if not polylines:
+                raise ValueError("Camada AdaptiveCurve sem linhas validas.")
+
+            sprayer = self.sprayer_widget.build_machine()
+            imported = import_adaptive_curve_passes(
+                polylines,
+                field_mp,
+                extension_m=self.sprayer_widget.extension_m(),
+                pass_spacing_m=sprayer.operational_width_m,
+                width_m=sprayer.operational_width_m,
+                operation_id="spraying",
+            )
+            spraying_passes = list(imported.passes)
+            avoided_paths = []
+            envelopes = []
+            avoidance_table = []
+
+            # Desvio so onde a polilinha ainda cruza obstaculo (novos).
+            apply_new = self.enable_avoidance.isChecked()
+            obstacles = []
+            if apply_new:
+                self.enable_avoidance.setChecked(True)
+                obstacles = self._build_obstacles(target_crs)
+            if obstacles:
+                config = AvoidanceConfiguration(mode=AvoidanceMode.CONCENTRIC_RING)
+                spraying_passes, avoided_paths = apply_application_obstacle_avoidance(
+                    spraying_passes,
+                    obstacles,
+                    sprayer,
+                    config,
+                    allowed_area=field_mp,
+                )
+                envelopes = merge_adjacent_envelopes(
+                    build_all_envelopes(obstacles, sprayer),
+                    config.merge_adjacent_envelopes_m,
+                )
+                avoidance_table = avoidance_summary(avoided_paths)
+
+            # Projeto minimo (sem exigir A-B capturada).
+            project = self._build_cross_stub_project(
+                crs_authid=crs_authid,
+                target_crs=target_crs,
+                planting_rows=list(self.last_result.planting_rows)
+                if self.last_result and self.last_result.planting_rows
+                else [],
+                spraying_passes=spraying_passes,
+            )
+
+            planting_passes = list(self.last_result.planting_passes) if self.last_result else []
+            planting_rows = list(self.last_result.planting_rows) if self.last_result else []
+            result = PrecisionLinesResult(
+                project=project,
+                boundary=self.last_result.boundary if self.last_result else None,
+                planting_passes=planting_passes,
+                planting_rows=planting_rows,
+                spraying_passes=spraying_passes,
+                tramline_zones=list(self.last_result.tramline_zones) if self.last_result else [],
+                shutoff_segments=list(self.last_result.shutoff_segments) if self.last_result else [],
+                shutoff_table=list(self.last_result.shutoff_table) if self.last_result else [],
+                avoided_paths=avoided_paths,
+                obstacle_envelopes=envelopes,
+                avoidance_table=avoidance_table,
+                spraying_boundary=self.last_result.spraying_boundary if self.last_result else None,
+                tire_tracks=list(self.last_result.tire_tracks) if self.last_result else [],
+            )
+            self.last_result = result
+            self._show_result(
+                result,
+                step=(
+                    f"AdaptiveCurve importada: {len(spraying_passes)} passadas, "
+                    f"{imported.stripped_uturn_count} retorno(s) cortado(s), "
+                    f"{len(avoided_paths)} desvio(s) novo(s)"
+                ),
+            )
+            self._select_preview_layers_in_cross_combos()
+            QMessageBox.information(
+                self,
+                "FortSmart",
+                f"Importacao concluida.\n"
+                f"Passadas: {len(spraying_passes)}\n"
+                f"Retornos (U) cortados: {imported.stripped_uturn_count}\n"
+                f"Desvios novos: {len(avoided_paths)}\n\n"
+                "Proximo: bordadura (gerar aplicacao/plantio se precisar) "
+                "ou Cruzar com plantio na aba 5.",
+            )
+        except Exception as exc:
+            if self.isMinimized():
+                self.showNormal()
+            self._warn_crs_error(exc)
+        finally:
+            self.setEnabled(True)
+            try:
+                from qgis.PyQt.QtWidgets import QApplication
+
+                QApplication.restoreOverrideCursor()
+            except Exception:
+                pass

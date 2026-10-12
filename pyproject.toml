@@ -1,0 +1,15 @@
+[project]
+name = "fortsmart-precision"
+version = "0.1.0"
+description = "Plugin QGIS para planejamento e validacao de agricultura de precisao."
+requires-python = ">=3.10"
+authors = [
+  { name = "Jeferson Fortunato - FortSmart" }
+]
+readme = "README.md"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+

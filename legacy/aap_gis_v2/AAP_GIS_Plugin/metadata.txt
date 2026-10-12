@@ -1,0 +1,18 @@
+[general]
+name=AAP GIS
+qgisMinimumVersion=3.0
+description=Sistema de Agricultura de Precisão - Projetar Plantio Automático
+version=2.1
+author=AAP GIS Team
+email=contato@aapgis.com
+
+about= Sistema AAP GIS v2.1 - Agricultura de Precisão com QGIS
+
+tracker=https://github.com/aapgis/aap-gis/issues
+repository=https://github.com/aapgis/aap-gis
+homepage=https://www.aapgis.com
+
+category=Raster
+icon=icon.png
+experimental=False
+deprecated=False
