@@ -64,6 +64,31 @@ class FreeMachineConfigTest(unittest.TestCase):
         self.assertAlmostEqual(overlap, 103 * 0.35 - 36.0, places=3)
         self.assertAlmostEqual(boom, 36.0)
 
+    def test_sprayer_manual_boom_without_nozzle_measurements(self):
+        machine = SprayerMachine(
+            machine_id="manual",
+            name="Barra medida",
+            nozzle_count=0,
+            nozzle_spacing_m=0.0,
+            boom_width_m=25.3,
+            track=MachineTrack(track_width_m=3.0, tire_width_m=0.4),
+        )
+        machine.validate()
+        self.assertEqual(machine.width_comparison().method, "manual")
+        self.assertAlmostEqual(machine.effective_pass_spacing_m, 25.3)
+
+    def test_sprayer_rejects_partial_nozzle_measurements(self):
+        machine = SprayerMachine(
+            machine_id="partial",
+            name="Barra medida",
+            nozzle_count=72,
+            nozzle_spacing_m=0.0,
+            boom_width_m=36.0,
+            track=MachineTrack(track_width_m=3.0, tire_width_m=0.4),
+        )
+        with self.assertRaisesRegex(ValueError, "juntos"):
+            machine.validate()
+
 
 if __name__ == "__main__":
     unittest.main()

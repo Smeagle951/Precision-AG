@@ -126,6 +126,13 @@ class SprayAvoidancePreviewTests(unittest.TestCase):
         )
         self.assertEqual(spray_safe_radius_text(0.5, 1.0), "0.50 + 1.00 = 1.50 m")
 
+    def test_manual_boom_summary_does_not_invent_nozzles(self):
+        text = spray_machine_summary(
+            boom_width_m=25.3, nozzle_count=0, nozzle_spacing_m=0.0, overlap_m=0.0
+        )
+        self.assertIn("largura informada manualmente", text)
+        self.assertNotIn("0 bicos", text)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -53,7 +53,7 @@ class PlanterMachine:
     name: str
     row_count: int
     row_spacing_m: float
-    track: MachineTrack
+    track: MachineTrack | None
     # Largura de trabalho informada: fonte de verdade da distancia entre passadas.
     informed_operational_width_m: float | None = None
     gnss_offset_m: float = 0.0
@@ -70,7 +70,8 @@ class PlanterMachine:
             self.geometry_config.validate()
         except PlanterGeometryError as exc:
             raise MachineModelError(f"{exc} ({exc.code})") from exc
-        self.track.validate()
+        if self.track is not None:
+            self.track.validate()
 
     @property
     def geometry_config(self) -> PlanterGeometryConfig:
@@ -160,8 +161,8 @@ class PlanterMachine:
             "row_count": self.row_count,
             "row_spacing_m": self.row_spacing_m,
             "operational_width_m": self.operational_width_m,
-            "track_width_m": self.track.track_width_m,
-            "tire_width_m": self.track.tire_width_m,
+            "track_width_m": self.track.track_width_m if self.track is not None else None,
+            "tire_width_m": self.track.tire_width_m if self.track is not None else None,
             "gnss_offset_m": self.gnss_offset_m,
             "implement_center_offset_m": self.implement_center_offset_m,
         }
@@ -200,10 +201,12 @@ class SprayerMachine:
             and self.sprayer_minimum_turn_radius_m <= 0
         ):
             raise MachineModelError("Raio minimo de giro do pulverizador deve ser maior que zero.")
-        if self.nozzle_count <= 0:
-            raise MachineModelError("Numero de bicos deve ser maior que zero.")
-        if self.nozzle_spacing_m <= 0:
-            raise MachineModelError("Espacamento entre bicos deve ser maior que zero.")
+        if self.nozzle_count < 0 or self.nozzle_spacing_m < 0:
+            raise MachineModelError("Numero e espacamento de bicos nao podem ser negativos.")
+        if (self.nozzle_count > 0) != (self.nozzle_spacing_m > 0):
+            raise MachineModelError("Informe numero e espacamento de bicos juntos.")
+        if self.overlap_mode == "nozzles" and self.nozzle_count <= 0:
+            raise MachineModelError("Transpasse em bicos exige numero e espacamento reais.")
         if self.boom_width_m <= 0:
             raise MachineModelError("Largura da barra deve ser maior que zero.")
         if self.overlap_m < 0:
@@ -256,6 +259,12 @@ class SprayerMachine:
             raise MachineModelError("Remonte deve ser menor que a largura da barra.") from exc
 
     def width_comparison(self) -> WidthComparison:
+        if self.nozzle_count <= 0:
+            return OperationWidth(
+                informed_width_m=self.boom_width_m,
+                method="manual",
+                manual_confirmed=True,
+            ).compare()
         return OperationWidth(
             informed_width_m=self.boom_width_m,
             method="count_spacing",

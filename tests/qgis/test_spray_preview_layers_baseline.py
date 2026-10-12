@@ -99,6 +99,12 @@ def make_dialog(ring: str = FIELD_RING, post_xy=(300.0, 210.0), ab=((0.0, 200.0)
     dialog.ab_source_crs = field.crs()
     dialog.sprayer_widget.nozzle_count_spin.setValue(72)
     dialog.sprayer_widget.nozzle_spacing_spin.setValue(0.50)
+    dialog.sprayer_widget.tire_spin.setValue(0.37)
+    dialog.sprayer_widget.inner_clearance_spin.setValue(2.70)
+    dialog.sprayer_widget.outer_width_spin.setValue(3.43)
+    dialog.planter_widget.row_count_spin.setValue(18)
+    dialog.planter_widget.row_spacing_spin.setValue(0.50)
+    dialog.planter_widget.informed_width_spin.setValue(9.0)
     return dialog
 
 

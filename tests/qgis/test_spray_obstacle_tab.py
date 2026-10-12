@@ -104,8 +104,14 @@ class SprayObstacleTabTest(unittest.TestCase):
         widget = self.dialog.sprayer_widget
         widget.nozzle_count_spin.setValue(72)
         widget.nozzle_spacing_spin.setValue(0.50)
+        widget.tire_spin.setValue(0.37)
+        widget.inner_clearance_spin.setValue(2.70)
+        widget.outer_width_spin.setValue(3.43)
         widget.overlap_mode_combo.setCurrentIndex(widget.overlap_mode_combo.findData(OVERLAP_MODE_NOZZLES))
         widget.overlap_nozzles_spin.setValue(2)
+        self.dialog.planter_widget.row_count_spin.setValue(18)
+        self.dialog.planter_widget.row_spacing_spin.setValue(0.50)
+        self.dialog.planter_widget.informed_width_spin.setValue(9.0)
 
     def tearDown(self):
         self.dialog.reject()

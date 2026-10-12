@@ -376,7 +376,7 @@ def kinematics_from_planter(
     """Helper para testes / fallback a partir do preset da plantadeira."""
     return PlantingKinematics(
         operational_width_m=operational_width_m or planter.operational_width_m,
-        track_width_m=planter.track.track_width_m,
+        track_width_m=planter.track.track_width_m if planter.track is not None else 0.0,
         gnss_reference=gnss_reference,
         gnss_offset_m=planter.gnss_offset_m,
         hitch_distance_m=hitch_distance_m,

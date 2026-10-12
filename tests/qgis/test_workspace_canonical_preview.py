@@ -414,6 +414,10 @@ class WorkspaceCanonicalPreviewTest(unittest.TestCase):
     def test_planning_exposes_cut_geometry_and_uses_planter_width(self):
         dialog = FortSmartWorkspaceDialog(_Iface())
         try:
+            self.assertEqual(dialog.fast_cut_width_spin.value(), 0.0)
+            dialog.planter_widget.row_count_spin.setValue(18)
+            dialog.planter_widget.row_spacing_spin.setValue(0.50)
+            dialog.planter_widget.informed_width_spin.setValue(9.0)
             self.assertIsInstance(dialog.fast_cut_geometry_box, MachineWorkGeometryBox)
             self.assertAlmostEqual(
                 dialog.fast_cut_width_spin.value(),

@@ -87,7 +87,11 @@ def validate_precision_project(
     if project.spraying is not None:
         sprayer = project.spraying.machine
         comparison = sprayer.width_comparison()
-        report.checks.append("Largura pulverizador calculada")
+        report.checks.append(
+            "Largura pulverizador calculada"
+            if comparison.method != "manual"
+            else "Largura pulverizador informada manualmente"
+        )
         if not comparison.is_compatible:
             report.add_warning(
                 "SPRAYER_WIDTH_DIVERGENCE",

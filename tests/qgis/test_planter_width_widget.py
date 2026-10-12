@@ -33,6 +33,27 @@ class PlanterWidthWidgetTest(unittest.TestCase):
         widget.informed_width_spin.setValue(width)
         return widget
 
+    def test_empty_widget_requires_real_measurements(self):
+        from plugin.fortsmart_precision.gui.machine_config_widgets import PlanterConfigWidget
+
+        widget = PlanterConfigWidget()
+        self.assertEqual(widget.row_count_spin.value(), 0)
+        self.assertEqual(widget.row_spacing_spin.value(), 0.0)
+        self.assertEqual(widget.informed_width_spin.value(), 0.0)
+        self.assertIn("Informe", widget.width_status_label.text())
+        with self.assertRaises(ValueError):
+            widget.build_machine()
+
+    def test_manual_width_does_not_invent_planter_track(self):
+        from plugin.fortsmart_precision.core.planting_kinematics_engine import kinematics_from_planter
+
+        widget = self.widget(width=19.0)
+        machine = widget.build_machine()
+        self.assertAlmostEqual(machine.operational_width_m, 19.0)
+        self.assertIsNone(machine.track)
+        self.assertIsNone(machine.to_dict()["track_width_m"])
+        self.assertEqual(kinematics_from_planter(machine).track_width_m, 0.0)
+
     def test_working_width_drives_passes_and_rows_only_warn(self):
         widget = self.widget()
         self.assertAlmostEqual(widget.effective_width_m(), 20.0)
@@ -55,6 +76,9 @@ class PlanterWidthWidgetTest(unittest.TestCase):
 
     def test_without_width_uses_rows(self):
         widget = self.widget(width=0.0)
+        with self.assertRaisesRegex(ValueError, "confirme"):
+            widget.build_machine()
+        widget.use_calculated_width_check.setChecked(True)
         self.assertAlmostEqual(widget.effective_width_m(), 19.0)
         self.assertEqual(widget.width_status_label.text(), "Distancia entre passadas: 19.00 m")
         self.assertIsNone(widget.build_machine().informed_operational_width_m)

@@ -1127,17 +1127,17 @@ class FortSmartWorkspaceDialog(QDialog):
         cut_box = QGroupBox("Medidas do corte rapido")
         cut_form = QFormLayout(cut_box)
         self.fast_cut_width_spin = QDoubleSpinBox()
-        self.fast_cut_width_spin.setRange(0.01, 200.0)
+        self.fast_cut_width_spin.setRange(0.0, 200.0)
         self.fast_cut_width_spin.setDecimals(2)
-        self.fast_cut_width_spin.setValue(20.0)
+        self.fast_cut_width_spin.setSpecialValueText("informar")
         self.fast_cut_width_spin.setSuffix(" m")
         cut_form.addRow("Largura da plantadeira:", self.fast_cut_width_spin)
         self.fast_cut_result_label = QLabel("")
         self.fast_cut_result_label.setWordWrap(True)
         cut_form.addRow("Distancia efetiva:", self.fast_cut_result_label)
         cut_note = QLabel(
-            "Formula: metade da largura + raio fisico + margem. "
-            "Ex.: 20 m / 2 + 0 m + 1 m = corte a 11 m do poste."
+            "Formula: metade da largura informada + raio fisico do obstaculo "
+            "+ margem informada."
         )
         cut_note.setWordWrap(True)
         cut_form.addRow(cut_note)
@@ -1265,6 +1265,9 @@ class FortSmartWorkspaceDialog(QDialog):
     def _refresh_fast_cut_measurement(self, *_args) -> None:
         if not hasattr(self, "fast_cut_result_label"):
             return
+        if self.fast_cut_width_spin.value() <= 0:
+            self.fast_cut_result_label.setText("Informe a largura real da plantadeira.")
+            return
         half_width = self.fast_cut_width_spin.value() / 2.0
         radius = self.obs_radius_spin.value()
         margin = self.spray_margin_spin.value()
@@ -1280,6 +1283,15 @@ class FortSmartWorkspaceDialog(QDialog):
     def _sync_fast_cut_from_planter(self, *_args) -> None:
         """A largura do corte vem da mesma plantadeira configurada na etapa 3."""
         if not hasattr(self, "fast_cut_width_spin") or not hasattr(self, "planter_widget"):
+            return
+        if (
+            self.planter_widget.row_count_spin.value() <= 0
+            or self.planter_widget.row_spacing_spin.value() <= 0
+            or (
+                self.planter_widget.configured_width_m() is None
+                and not self.planter_widget.use_calculated_width_check.isChecked()
+            )
+        ):
             return
         self.fast_cut_width_spin.setValue(self.planter_widget.effective_width_m())
 
@@ -1335,6 +1347,11 @@ class FortSmartWorkspaceDialog(QDialog):
             )
             return
 
+        if self.fast_cut_width_spin.value() <= 0:
+            QMessageBox.warning(
+                self, "FortSmart — Corte", "Informe a largura real da plantadeira."
+            )
+            return
         self.fast_cut_dialog = PlantingLineCutDialog(self.iface, self)
         self.fast_cut_dialog.lines_combo.setLayer(line_layer)
         self.fast_cut_dialog.field_combo.setLayer(field_layer)
@@ -1366,14 +1383,22 @@ class FortSmartWorkspaceDialog(QDialog):
         from ..core.spray_avoidance_preview import spray_machine_summary, spray_safe_radius_text
 
         widget = self.sprayer_widget
-        self.spray_machine_info_label.setText(
-            spray_machine_summary(
-                boom_width_m=widget.effective_boom_m(),
-                nozzle_count=widget.nozzle_count_spin.value(),
-                nozzle_spacing_m=widget.nozzle_spacing_spin.value(),
-                overlap_m=widget.resolved_overlap_m(),
-            )
-        )
+        if widget.effective_boom_m() <= 0:
+            self.spray_machine_info_label.setText("Informe a largura real da barra.")
+        else:
+            try:
+                overlap = widget.resolved_overlap_m()
+            except ValueError as exc:
+                self.spray_machine_info_label.setText(str(exc))
+            else:
+                self.spray_machine_info_label.setText(
+                    spray_machine_summary(
+                        boom_width_m=widget.effective_boom_m(),
+                        nozzle_count=widget.nozzle_count_spin.value(),
+                        nozzle_spacing_m=widget.nozzle_spacing_spin.value(),
+                        overlap_m=overlap,
+                    )
+                )
         self.spray_safe_radius_label.setText(
             spray_safe_radius_text(
                 self.spray_obstacle_radius_spin.value(), self.spray_safety_margin_spin.value()
@@ -3074,7 +3099,7 @@ class FortSmartWorkspaceDialog(QDialog):
 
             kinematics = PlantingKinematics(
                 operational_width_m=planter.operational_width_m,
-                track_width_m=planter.track.track_width_m,
+                track_width_m=planter.track.track_width_m if planter.track is not None else 0.0,
                 hitch_distance_m=self.planter_widget.hitch_distance_m(),
                 minimum_turn_radius_m=self.planter_widget.turn_radius_m(),
                 row_count=planter.row_count,

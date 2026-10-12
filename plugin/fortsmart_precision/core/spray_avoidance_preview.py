@@ -130,8 +130,13 @@ def spray_machine_summary(
     overlap_m: float,
 ) -> str:
     """Barra fisica e passo efetivo lidos da aba 2 (nao sao perguntados de novo)."""
+    source = (
+        f"{nozzle_count} bicos x {nozzle_spacing_m:.3f} m"
+        if nozzle_count > 0 and nozzle_spacing_m > 0
+        else "largura informada manualmente"
+    )
     return (
-        f"Barra fisica {boom_width_m:.3f} m ({nozzle_count} bicos x {nozzle_spacing_m:.3f} m) | "
+        f"Barra fisica {boom_width_m:.3f} m ({source}) | "
         f"transpasse {overlap_m:.3f} m | passo efetivo {boom_width_m - overlap_m:.3f} m"
     )
 

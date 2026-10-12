@@ -17,7 +17,7 @@ from qgis.PyQt.QtWidgets import (
     QWidget,
 )
 
-from ..domain.machine_model import MachineTrack, PlanterMachine, SprayerMachine
+from ..domain.machine_model import PlanterMachine, SprayerMachine
 from ..domain.precision_project import (
     SPRAY_HEADLAND_TURN_AUTOMATIC,
     SPRAY_HEADLAND_TURN_MANUAL,
@@ -63,11 +63,6 @@ def build_headland_mode_combo() -> QComboBox:
     )
     return combo
 
-# Valores internos minimos exigidos pelo modelo PlanterMachine (nao exibidos na GUI).
-_PLANTER_TRACK_PLACEHOLDER_M = 1.80
-_PLANTER_TIRE_PLACEHOLDER_M = 0.30
-
-
 class PlanterConfigWidget(QWidget):
     """Plantadeira: linhas, espacamento, hitch e raio de giro (como no monitor)."""
 
@@ -87,22 +82,22 @@ class PlanterConfigWidget(QWidget):
         form.addRow("Nome / modelo:", self.name_edit)
 
         self.row_count_spin = QSpinBox()
-        self.row_count_spin.setRange(1, 200)
-        self.row_count_spin.setValue(18)
+        self.row_count_spin.setRange(0, 200)
+        self.row_count_spin.setSpecialValueText("informar")
         form.addRow("Numero de linhas:", self.row_count_spin)
 
         self.row_spacing_spin = QDoubleSpinBox()
-        self.row_spacing_spin.setRange(0.10, 2.0)
+        self.row_spacing_spin.setRange(0.0, 2.0)
         self.row_spacing_spin.setDecimals(3)
         self.row_spacing_spin.setSingleStep(0.05)
-        self.row_spacing_spin.setValue(0.50)
+        self.row_spacing_spin.setSpecialValueText("informar")
         self.row_spacing_spin.setSuffix(" m")
         form.addRow("Espacamento entre linhas:", self.row_spacing_spin)
 
         self.informed_width_spin = QDoubleSpinBox()
         self.informed_width_spin.setRange(0.0, 80.0)
         self.informed_width_spin.setDecimals(3)
-        self.informed_width_spin.setSpecialValueText("usar linhas x espacamento")
+        self.informed_width_spin.setSpecialValueText("informar")
         self.informed_width_spin.setSuffix(" m")
         self.informed_width_spin.setValue(0.0)
         self.informed_width_spin.setToolTip(
@@ -110,6 +105,11 @@ class PlanterConfigWidget(QWidget):
             "Linhas e espacamento apenas conferem o encontro entre passadas."
         )
         form.addRow("Largura de trabalho:", self.informed_width_spin)
+
+        self.use_calculated_width_check = QCheckBox(
+            "Usar linhas × espacamento como largura de trabalho (confirmar)"
+        )
+        form.addRow(self.use_calculated_width_check)
 
         self.calc_width_label = QLabel("0,000 m")
         form.addRow("Largura equivalente (linhas x esp.):", self.calc_width_label)
@@ -213,6 +213,7 @@ class PlanterConfigWidget(QWidget):
             self.hitch_spin,
         ):
             w.valueChanged.connect(self._refresh)
+        self.use_calculated_width_check.toggled.connect(self._refresh)
         self.headland_check.toggled.connect(self._refresh)
         self.headland_corner_combo.currentIndexChanged.connect(self._refresh)
         self.headland_mode_combo.currentIndexChanged.connect(self._refresh)
@@ -238,8 +239,25 @@ class PlanterConfigWidget(QWidget):
         return resolve_effective_working_width(self.geometry_config())
 
     def _refresh(self) -> None:
+        if self.row_count_spin.value() <= 0 or self.row_spacing_spin.value() <= 0:
+            self.calc_width_label.setText("Informe linhas e espacamento")
+            self.width_status_label.setText("Informe as medidas reais da plantadeira.")
+            self.planter_summary_label.setText("")
+            self.meeting_label.setText("")
+            self.headland_status_label.setText("Aguardando medidas da plantadeira.")
+            self.changed.emit()
+            return
         config = self.geometry_config()
         self.calc_width_label.setText(f"{config.row_based_width_m:.3f} m (apenas conferencia)")
+        if self.configured_width_m() is None and not self.use_calculated_width_check.isChecked():
+            self.width_status_label.setText(
+                "Informe a largura real ou confirme o uso de linhas × espacamento."
+            )
+            self.planter_summary_label.setText("")
+            self.meeting_label.setText("")
+            self.headland_status_label.setText("Aguardando largura da plantadeira.")
+            self.changed.emit()
+            return
         issues = PlanterGeometryValidator().validate(config)
         mismatch = [item for item in issues if item.code == GEOMETRY_WIDTH_MISMATCH]
         width = self.effective_width_m()
@@ -307,6 +325,11 @@ class PlanterConfigWidget(QWidget):
             )
 
     def build_machine(self) -> PlanterMachine:
+        if self.configured_width_m() is None and not self.use_calculated_width_check.isChecked():
+            raise ValueError(
+                "Informe a largura de trabalho real da plantadeira ou confirme "
+                "explicitamente o uso de linhas × espacamento."
+            )
         name = self.name_edit.text().strip() or "Plantadeira"
         slug = "".join(ch if ch.isalnum() else "_" for ch in name.lower())[:40] or "planter"
         machine = PlanterMachine(
@@ -314,10 +337,7 @@ class PlanterConfigWidget(QWidget):
             name=name,
             row_count=self.row_count_spin.value(),
             row_spacing_m=self.row_spacing_spin.value(),
-            track=MachineTrack(
-                track_width_m=_PLANTER_TRACK_PLACEHOLDER_M,
-                tire_width_m=_PLANTER_TIRE_PLACEHOLDER_M,
-            ),
+            track=None,
             informed_operational_width_m=self.configured_width_m(),
         )
         machine.validate()
@@ -377,14 +397,14 @@ class SprayerConfigWidget(QWidget):
         boom_form.addRow("Nome / modelo:", self.name_edit)
 
         self.nozzle_count_spin = QSpinBox()
-        self.nozzle_count_spin.setRange(1, 1000000)
-        self.nozzle_count_spin.setValue(40)
+        self.nozzle_count_spin.setRange(0, 1000000)
+        self.nozzle_count_spin.setSpecialValueText("informar")
         boom_form.addRow("Numero de bicos:", self.nozzle_count_spin)
 
         self.nozzle_spacing_spin = QDoubleSpinBox()
-        self.nozzle_spacing_spin.setRange(0.001, 1000000.0)
+        self.nozzle_spacing_spin.setRange(0.0, 1000000.0)
         self.nozzle_spacing_spin.setDecimals(3)
-        self.nozzle_spacing_spin.setValue(0.50)
+        self.nozzle_spacing_spin.setSpecialValueText("informar")
         self.nozzle_spacing_spin.setSuffix(" m")
         boom_form.addRow("Espacamento entre bicos:", self.nozzle_spacing_spin)
 
@@ -394,10 +414,10 @@ class SprayerConfigWidget(QWidget):
         self.boom_spin = QDoubleSpinBox()
         self.boom_spin.setRange(0.0, 1000000.0)
         self.boom_spin.setDecimals(3)
-        self.boom_spin.setSpecialValueText("usar calculada")
+        self.boom_spin.setSpecialValueText("usar bicos × esp. (se informados)")
         self.boom_spin.setSuffix(" m")
         self.boom_spin.setValue(0.0)
-        boom_form.addRow("Largura da barra (monitor):", self.boom_spin)
+        boom_form.addRow("Largura real da barra (manual):", self.boom_spin)
 
         self.overlap_mode_combo = QComboBox()
         self.overlap_mode_combo.addItem("Sem transpasse", OVERLAP_MODE_NONE)
@@ -424,7 +444,7 @@ class SprayerConfigWidget(QWidget):
 
         self.overlap_nozzles_spin = QSpinBox()
         self.overlap_nozzles_spin.setRange(0, max(0, self.nozzle_count_spin.value() - 1))
-        self.overlap_nozzles_spin.setValue(2)
+        self.overlap_nozzles_spin.setValue(0)
         self.overlap_nozzles_spin.setToolTip(
             "Transpasse = bicos de transpasse x espacamento entre bicos."
         )
@@ -451,25 +471,25 @@ class SprayerConfigWidget(QWidget):
         traffic_form.addRow(traffic_hint)
 
         self.tire_spin = QDoubleSpinBox()
-        self.tire_spin.setRange(0.001, 1000000.0)
+        self.tire_spin.setRange(0.0, 1000000.0)
         self.tire_spin.setDecimals(3)
-        self.tire_spin.setValue(0.37)
+        self.tire_spin.setSpecialValueText("informar")
         self.tire_spin.setSuffix(" m")
         self.tire_spin.setToolTip("Medida livre informada pelo usuario; nao usa perfil fixo.")
         traffic_form.addRow("Largura do pneu:", self.tire_spin)
 
         self.inner_clearance_spin = QDoubleSpinBox()
-        self.inner_clearance_spin.setRange(0.001, 1000000.0)
+        self.inner_clearance_spin.setRange(0.0, 1000000.0)
         self.inner_clearance_spin.setDecimals(3)
-        self.inner_clearance_spin.setValue(2.70)
+        self.inner_clearance_spin.setSpecialValueText("informar")
         self.inner_clearance_spin.setSuffix(" m")
         self.inner_clearance_spin.setToolTip("Medida livre entre as faces internas dos pneus.")
         traffic_form.addRow("Vao livre entre pneus:", self.inner_clearance_spin)
 
         self.outer_width_spin = QDoubleSpinBox()
-        self.outer_width_spin.setRange(0.001, 1000000.0)
+        self.outer_width_spin.setRange(0.0, 1000000.0)
         self.outer_width_spin.setDecimals(3)
-        self.outer_width_spin.setValue(3.43)
+        self.outer_width_spin.setSpecialValueText("informar")
         self.outer_width_spin.setSuffix(" m")
         self.outer_width_spin.setToolTip("Medida externa livre; divergencias sao mostradas antes de gerar.")
         traffic_form.addRow("Largura externa total:", self.outer_width_spin)
@@ -681,6 +701,8 @@ class SprayerConfigWidget(QWidget):
             )
         if self.overlap_spin.value() > 0:
             return f"Transpasse informado: {self.overlap_spin.value():.3f} m"
+        if calc <= 0:
+            return "Barra informada manualmente; sem calculo por bicos e sem transpasse."
         if boom < calc - 0.001:
             return (
                 f"Transpasse automatico: faixa ({boom:.3f} m) < calculada ({calc:.3f} m) "
@@ -695,10 +717,30 @@ class SprayerConfigWidget(QWidget):
 
     def _refresh(self) -> None:
         calc = self.calculated_boom_m()
-        self.calc_boom_label.setText(f"{calc:.3f} m")
+        self.calc_boom_label.setText(
+            f"{calc:.3f} m" if calc > 0 else "Informe bicos e espacamento"
+        )
         boom = self.effective_boom_m()
         self._sync_overlap_inputs()
-        overlap = self.resolved_overlap_m()
+        if boom <= 0:
+            self.auto_overlap_hint.setText("Informe a largura real da barra ou bicos e espacamento.")
+            self.overlap_status_label.setText("Aguardando largura da pulverizacao.")
+            self.half_boom_label.setText("—")
+            self.headland_band_label.setText("Aguardando largura da barra.")
+            self.headland_summary_label.setText("—")
+            self._refresh_traffic_preview()
+            self._refresh_turn_mode_hint()
+            self.changed.emit()
+            return
+        try:
+            overlap = self.resolved_overlap_m()
+        except SprayerOverlapError as exc:
+            self.auto_overlap_hint.setText(str(exc))
+            self.overlap_status_label.setText("Aguardando medidas do transpasse.")
+            self._refresh_traffic_preview()
+            self._refresh_turn_mode_hint()
+            self.changed.emit()
+            return
 
         self.auto_overlap_hint.setText(self._overlap_hint(boom, calc, overlap))
         spacing = boom - overlap
@@ -780,6 +822,12 @@ class SprayerConfigWidget(QWidget):
             self.zones_preview_label.setText("")
 
     def build_machine(self) -> SprayerMachine:
+        if self.effective_boom_m() <= 0:
+            raise ValueError("Informe a largura real da barra ou bicos e espacamento.")
+        if (self.nozzle_count_spin.value() > 0) != (self.nozzle_spacing_spin.value() > 0):
+            raise ValueError("Informe numero e espacamento de bicos juntos.")
+        if self.overlap_mode() == OVERLAP_MODE_NOZZLES and self.nozzle_count_spin.value() <= 0:
+            raise ValueError("Transpasse em bicos exige numero e espacamento reais.")
         name = self.name_edit.text().strip() or "Pulverizador"
         slug = "".join(ch if ch.isalnum() else "_" for ch in name.lower())[:40] or "sprayer"
         boom = self.effective_boom_m()

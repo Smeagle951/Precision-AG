@@ -44,6 +44,9 @@ def _acceptance_widget(outside: float = 0.5) -> SprayerConfigWidget:
     widget = SprayerConfigWidget()
     widget.nozzle_count_spin.setValue(72)
     widget.nozzle_spacing_spin.setValue(0.50)
+    widget.tire_spin.setValue(0.37)
+    widget.inner_clearance_spin.setValue(2.70)
+    widget.outer_width_spin.setValue(3.43)
     _select_mode(widget, OVERLAP_MODE_NOZZLES)
     widget.overlap_nozzles_spin.setValue(2)
     widget.headland_outside_overlap_spin.setValue(outside)
@@ -101,7 +104,38 @@ class SprayerOverlapWidgetTest(unittest.TestCase):
             ["Sem transpasse", "Em metros", "Em numero de bicos"],
         )
         self.assertEqual(widget.overlap_mode(), OVERLAP_MODE_METERS)
-        self.assertEqual(widget.overlap_nozzles_spin.value(), 2)
+        self.assertEqual(widget.overlap_nozzles_spin.value(), 0)
+
+    def test_empty_widget_requires_real_measurements(self):
+        widget = SprayerConfigWidget()
+        self.assertEqual(widget.nozzle_count_spin.value(), 0)
+        self.assertEqual(widget.boom_spin.value(), 0.0)
+        self.assertEqual(widget.tire_spin.value(), 0.0)
+        self.assertEqual(widget.inner_clearance_spin.value(), 0.0)
+        self.assertEqual(widget.outer_width_spin.value(), 0.0)
+        with self.assertRaisesRegex(ValueError, "largura real da barra"):
+            widget.build_machine()
+
+    def test_manual_boom_without_nozzle_count(self):
+        widget = SprayerConfigWidget()
+        widget.boom_spin.setValue(25.3)
+        widget.tire_spin.setValue(0.4)
+        widget.inner_clearance_spin.setValue(2.6)
+        widget.outer_width_spin.setValue(3.4)
+        machine = widget.build_machine()
+        self.assertAlmostEqual(machine.boom_width_m, 25.3)
+        self.assertAlmostEqual(machine.effective_pass_spacing_m, 25.3)
+        self.assertEqual(machine.nozzle_count, 0)
+        self.assertEqual(machine.width_comparison().method, "manual")
+        self.assertIn("sem calculo por bicos", widget.auto_overlap_hint.text())
+
+    def test_nozzle_overlap_waits_for_nozzle_measurements(self):
+        widget = SprayerConfigWidget()
+        widget.boom_spin.setValue(25.3)
+        _select_mode(widget, OVERLAP_MODE_NOZZLES)
+        self.assertIn("Bicos de transpasse", widget.auto_overlap_hint.text())
+        with self.assertRaisesRegex(ValueError, "Transpasse em bicos exige"):
+            widget.build_machine()
 
     def test_mode_controls_visibility(self):
         widget = SprayerConfigWidget()
@@ -152,6 +186,7 @@ class SprayerOverlapWidgetTest(unittest.TestCase):
         widget.outer_width_spin.setValue(14.0)
         widget.tire_spin.setValue(2.5)
         widget.inner_clearance_spin.setValue(9.0)
+        widget.boom_spin.setValue(120.0)
         widget.tire_safety_margin_spin.setValue(0.25)
 
         machine = widget.build_machine()
@@ -178,7 +213,7 @@ class SprayerOverlapWidgetTest(unittest.TestCase):
         self.assertEqual(widget.zones_preview_label.text(), "")
 
     def test_meters_mode_keeps_legacy_auto_overlap(self):
-        widget = SprayerConfigWidget()
+        widget = _acceptance_widget()
         widget.nozzle_count_spin.setValue(72)
         widget.boom_spin.setValue(35.0)
         self.assertAlmostEqual(widget.resolved_overlap_m(), 1.0)
@@ -189,8 +224,14 @@ class SprayerOverlapWidgetTest(unittest.TestCase):
         self.assertEqual(widget.resolved_overlap_m(), 0.0)
         self.assertAlmostEqual(widget.build_machine().effective_pass_spacing_m, 35.0)
 
-    def test_default_widget_reproduces_previous_result(self):
-        machine = SprayerConfigWidget().build_machine()
+    def test_explicit_prior_values_reproduce_previous_result(self):
+        widget = SprayerConfigWidget()
+        widget.nozzle_count_spin.setValue(40)
+        widget.nozzle_spacing_spin.setValue(0.50)
+        widget.tire_spin.setValue(0.37)
+        widget.inner_clearance_spin.setValue(2.70)
+        widget.outer_width_spin.setValue(3.43)
+        machine = widget.build_machine()
         self.assertAlmostEqual(machine.boom_width_m, 20.0)
         self.assertEqual(machine.overlap_m, 0.0)
         self.assertAlmostEqual(machine.effective_pass_spacing_m, 20.0)
@@ -247,6 +288,9 @@ class BuildProjectSprayHeadlandTest(unittest.TestCase):
         QgsProject.instance().addMapLayer(layer)
         self.layer = layer
         self.dialog = FortSmartWorkspaceDialog(_Iface())
+        self.dialog.planter_widget.row_count_spin.setValue(18)
+        self.dialog.planter_widget.row_spacing_spin.setValue(0.50)
+        self.dialog.planter_widget.informed_width_spin.setValue(9.0)
         self.dialog.field_combo.setLayer(layer)
         self.dialog.ab_start = (0.0, 200.0)
         self.dialog.ab_end = (600.0, 200.0)
@@ -261,6 +305,9 @@ class BuildProjectSprayHeadlandTest(unittest.TestCase):
         widget = self.dialog.sprayer_widget
         widget.nozzle_count_spin.setValue(72)
         widget.nozzle_spacing_spin.setValue(0.50)
+        widget.tire_spin.setValue(0.37)
+        widget.inner_clearance_spin.setValue(2.70)
+        widget.outer_width_spin.setValue(3.43)
         _select_mode(widget, OVERLAP_MODE_NOZZLES)
         widget.overlap_nozzles_spin.setValue(2)
         widget.headland_outside_overlap_spin.setValue(outside)
